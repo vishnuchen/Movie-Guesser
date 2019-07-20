@@ -3,6 +3,7 @@ import GameSection from "./GameSection.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
+
 class Home extends Component {
   constructor() {
     super();
