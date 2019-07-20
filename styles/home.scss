@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Bahianita&display=swap');
+
+body{
+  margin: 0;
+}
+nav {
+  height: 6rem;
+  background-color: paleturquoise;
+  z-index: 1;
+}
+
+.navbar-brand {
+  font-size: 48px;
+  font-family: 'Bahianita', cursive;
+  color: white;
+  line-height: 6rem;
+  padding: 0 20px;
+  text-decoration: none;
+}
+.game-section {
+  height: 80vh;
+  margin: 20px;
+  padding: 20px;
+}
+
+.game-section-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.game-section-all div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.game-section-all h2 {
+  margin: auto;
+}
+.game-section-all img {
+  width: 200px;
+  margin: 20px;
+}
+
+.game-section-all a {
+  margin: auto;
+  background-color: aquamarine;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+}
