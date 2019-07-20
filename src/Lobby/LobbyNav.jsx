@@ -18,8 +18,14 @@ class LobbyNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameInfo />
-        <PlayerList />
+        <div className="lobby-main">
+          <div className="game-info">
+            <GameInfo />
+          </div>
+          <div className="player-list">
+            <PlayerList />
+          </div>
+        </div>
       </div>
     );
   }

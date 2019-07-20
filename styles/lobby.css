@@ -1,0 +1,10 @@
+.lobby-main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+ .game-info, .player-list {
+  border: 1px solid black;
+  height: 82vh;
+  padding: 20px;
+}
