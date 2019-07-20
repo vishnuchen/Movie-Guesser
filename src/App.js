@@ -11,7 +11,8 @@ import {
 import Home from "./Home/Home.jsx"
 import LobbyNav from "./Lobby/LobbyNav.jsx";
 import GameNav from "./Game/GameNav.jsx";
-import '../styles/application.scss';
+// import "./App.css";
+import '../styles/home.css';
 
 class App extends Component {
   render() {

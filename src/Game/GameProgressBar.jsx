@@ -1,31 +1,17 @@
 import React, {Component} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 
-class GameProgessBar extends Component {
+class GameProgressBar extends Component {
   constructor() {
     super();
   }
 
   render() {
-    const gameCat = "Comedy";
-    const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} />
-
-    return(
-      <div>
-        <div className="game-cat">
-          Category: {gameCat} (fake category)
-        </div>
-        <div>
-          ========================(fake progress bar)
-        </div>
-        <div>
-          {HourglassElement} 30S (fake timer)
-        </div>
+    return (
+      <div className="progress-bar">
+        ==========================(fake progress bar)
       </div>
     );
   }
 }
 
-export default GameProgessBar;
-
+export default GameProgressBar;

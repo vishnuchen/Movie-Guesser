@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
-import GameProgessBar from './GameProgressBar.jsx';
+import GameState from './GameState.jsx';
 
 
 class GameNav extends Component {
   constructor() {
     super();
+    this.state={ans:""};
+  }
+
+  checkAnswer = (ans) => {
+    if(ans == "y") {
+      this.setState({ans:"correct"});
+    } else {
+      this.setState({ans:"wrong"});
+    }
+    
   }
 
   render() {
@@ -18,7 +28,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameProgessBar />
+        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans}/>
       </div>
     );
   }
