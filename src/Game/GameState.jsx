@@ -13,7 +13,6 @@ class GameState extends Component {
 
   render() {
     const gameCat = "Comedy";
-    const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} />
     const Completionist = () => <span>load question 2</span>
 
     const renderer = ({ seconds, completed }) => {
@@ -23,6 +22,7 @@ class GameState extends Component {
         return <span>{seconds}</span>
       }
     }
+    const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} className="fa-spin" />
 
     return(
       <div>
@@ -34,7 +34,7 @@ class GameState extends Component {
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea checkAnswer={this.props.checkAnswer} ans={this.props.ans}/>
+            <QuizArea checkAnswer={this.props.checkAnswer} ans={this.props.ans} pic={this.props.pic}/>
           </div>
         </div>
         <GameProgressBar />
