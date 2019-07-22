@@ -11,6 +11,7 @@ class GameNav extends Component {
       result: "wrong",
       correctAnswer: 1,
       userAnswer: 0,
+      counter: 0,
       image: [{
       "aspect_ratio": 1.777777777777778,
       "file_path": "/dihW2yTsvQlust7mSuAqJDtqW7k.jpg",
@@ -166,16 +167,21 @@ class GameNav extends Component {
     }]
     };
   }
-
   userChoice = (choice) => {
     this.setState({userAnswer: choice});
   }
 
   checkAnswer = () => {
     if(this.state.userAnswer == this.state.correctAnswer) {
-      this.setState({result: "correct"});
+      this.setState({
+        result: "correct",
+        counter: this.state.counter + 60
+      });
     } else {
-      this.setState({result: "wrong"});
+      this.setState({
+        result: "wrong",
+        counter: this.state.counter + 60
+      });
     }
 
   }
@@ -189,7 +195,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} />
+        <GameState checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
       </div>
     );
   }
