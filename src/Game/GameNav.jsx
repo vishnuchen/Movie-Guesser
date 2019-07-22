@@ -9,6 +9,7 @@ class GameNav extends Component {
     super();
     this.state={
       ans:"",
+      counter: 0,
       image: [{
       "aspect_ratio": 1.777777777777778,
       "file_path": "/dihW2yTsvQlust7mSuAqJDtqW7k.jpg",
@@ -167,11 +168,17 @@ class GameNav extends Component {
 
   checkAnswer = (ans) => {
     if(ans == "y") {
-      this.setState({ans:"correct"});
+      this.setState({
+        ans:"correct",
+        counter: this.state.counter + 60
+      });
     } else {
-      this.setState({ans:"wrong"});
+      this.setState({
+        ans:"wrong",
+        counter: this.state.counter + 60
+      });
     }
-    
+
   }
 
   render() {
@@ -183,7 +190,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans} pic={this.state.image}/>
+        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans} pic={this.state.image} counter={this.state.counter} />
       </div>
     );
   }
