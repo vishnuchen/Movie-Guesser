@@ -8,7 +8,9 @@ class GameNav extends Component {
   constructor() {
     super();
     this.state={
-      ans:"",
+      result: "wrong",
+      correctAnswer: 1,
+      userAnswer: 0,
       counter: 0,
       image: [{
       "aspect_ratio": 1.777777777777778,
@@ -165,16 +167,19 @@ class GameNav extends Component {
     }]
     };
   }
+  userChoice = (choice) => {
+    this.setState({userAnswer: choice});
+  }
 
-  checkAnswer = (ans) => {
-    if(ans == "y") {
+  checkAnswer = () => {
+    if(this.state.userAnswer == this.state.correctAnswer) {
       this.setState({
-        ans:"correct",
+        result: "correct",
         counter: this.state.counter + 60
       });
     } else {
       this.setState({
-        ans:"wrong",
+        result: "wrong",
         counter: this.state.counter + 60
       });
     }
@@ -190,7 +195,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans} pic={this.state.image} counter={this.state.counter} />
+        <GameState checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
       </div>
     );
   }
