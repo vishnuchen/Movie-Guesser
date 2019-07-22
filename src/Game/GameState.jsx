@@ -14,13 +14,22 @@ class GameState extends Component {
   render() {
     const gameCat = "Comedy";
     const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} />
+    const Completionist = () => <span>trigger a script to take user to next page</span>
+
+    const renderer = ({ seconds, completed }) => {
+      if (completed) {
+        return <Completionist />
+      } else {
+        return <span>{seconds}</span>
+      }
+    }
 
     return(
       <div>
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          <Countdown date={Date.now() + 30000}>
-            <span>trigger a script to take user to next page</span>
+          <Countdown date={Date.now() + 30000} renderer={renderer}>
+            <Completionist />
           </Countdown>
         </div>
         <div className="game-cat">
