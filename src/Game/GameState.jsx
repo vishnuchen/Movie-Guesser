@@ -12,7 +12,7 @@ class GameState extends Component {
 
   render() {
     const gameCat = "Comedy";
-    const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} />
+    const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} className="fa-spin" />
 
     return(
       <div>
@@ -22,7 +22,7 @@ class GameState extends Component {
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea checkAnswer={this.props.checkAnswer} ans={this.props.ans}/>
+            <QuizArea checkAnswer={this.props.checkAnswer} ans={this.props.ans} pic={this.props.pic}/>
           </div>
         </div>
         <GameProgressBar />

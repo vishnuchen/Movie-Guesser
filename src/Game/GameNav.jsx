@@ -7,7 +7,162 @@ import GameState from './GameState.jsx';
 class GameNav extends Component {
   constructor() {
     super();
-    this.state={ans:""};
+    this.state={
+      ans:"",
+      image: [{
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/dihW2yTsvQlust7mSuAqJDtqW7k.jpg",
+      "height": 2160,
+      "iso_639_1": null,
+      "vote_average": 5.326,
+      "vote_count": 7,
+      "width": 3840
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/5myQbDzw3l8K9yofUXRJ4UTVgam.jpg",
+      "height": 2160,
+      "iso_639_1": null,
+      "vote_average": 5.312,
+      "vote_count": 1,
+      "width": 3840
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/iqAQ1rPcTtaVl5kSfaHyLL4f9um.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 5.252,
+      "vote_count": 4,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/Dk8wzICaD5q7vBp1xeDOWd6e80.jpg",
+      "height": 720,
+      "iso_639_1": "el",
+      "vote_average": 5.246,
+      "vote_count": 2,
+      "width": 1280
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/3o4NzKxeGSSsrrHnwGKrd3qHK0V.jpg",
+      "height": 1872,
+      "iso_639_1": null,
+      "vote_average": 5.19,
+      "vote_count": 5,
+      "width": 3328
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/ng6SSB3JhbcpKTwbPDsRwUYK8Cq.jpg",
+      "height": 2160,
+      "iso_639_1": null,
+      "vote_average": 5.19,
+      "vote_count": 5,
+      "width": 3840
+    },
+    {
+      "aspect_ratio": 1.778739184177998,
+      "file_path": "/czX5BtmyI1rAPzedCshFZbvEIvc.jpg",
+      "height": 809,
+      "iso_639_1": "en",
+      "vote_average": 5.172,
+      "vote_count": 1,
+      "width": 1439
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/hSzmNczQBnYjbd5rhShdfmPwqti.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 5.138,
+      "vote_count": 8,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/nsv7x6bBPF2nedmlHFk1mxhPTWm.jpg",
+      "height": 1080,
+      "iso_639_1": "xx",
+      "vote_average": 5.128,
+      "vote_count": 6,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/a3pOBXeS7zF9dQphvJVT9V4kpXm.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/onrO9pu6EIfKnHgETezg8Umqxtk.jpg",
+      "height": 1440,
+      "iso_639_1": null,
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 2560
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/dM3UqVwp3a8evb1H1Dv0gIA3df1.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/6ihyJWRLEngSnlW8HKeDOH3AfSQ.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/cR8vQiOMiuIEmRmAst1P94b3sOn.jpg",
+      "height": 1080,
+      "iso_639_1": "en",
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/a5Bc1PafqCLEPooQWpO5M5e9A3m.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/zdBo5RSvVK5qlE50bGJezqRJrTy.jpg",
+      "height": 1080,
+      "iso_639_1": null,
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    },
+    {
+      "aspect_ratio": 1.777777777777778,
+      "file_path": "/tTfjDFRDUfxWGWwE4hiFauHl9EL.jpg",
+      "height": 1080,
+      "iso_639_1": "en",
+      "vote_average": 0,
+      "vote_count": 0,
+      "width": 1920
+    }]
+    };
   }
 
   checkAnswer = (ans) => {
@@ -28,7 +183,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans}/>
+        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans} pic={this.state.image}/>
       </div>
     );
   }
