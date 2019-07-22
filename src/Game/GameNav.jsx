@@ -8,7 +8,9 @@ class GameNav extends Component {
   constructor() {
     super();
     this.state={
-      ans:"",
+      result: "wrong",
+      correctAnswer: 1,
+      userAnswer: 0,
       image: [{
       "aspect_ratio": 1.777777777777778,
       "file_path": "/dihW2yTsvQlust7mSuAqJDtqW7k.jpg",
@@ -165,13 +167,17 @@ class GameNav extends Component {
     };
   }
 
-  checkAnswer = (ans) => {
-    if(ans == "y") {
-      this.setState({ans:"correct"});
+  userChoice = (choice) => {
+    this.setState({userAnswer: choice});
+  }
+
+  checkAnswer = () => {
+    if(this.state.userAnswer == this.state.correctAnswer) {
+      this.setState({result: "correct"});
     } else {
-      this.setState({ans:"wrong"});
+      this.setState({result: "wrong"});
     }
-    
+
   }
 
   render() {
@@ -183,7 +189,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState checkAnswer={this.checkAnswer} ans={this.state.ans} pic={this.state.image}/>
+        <GameState checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} />
       </div>
     );
   }
