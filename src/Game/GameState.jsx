@@ -14,7 +14,7 @@ class GameState extends Component {
   render() {
     const gameCat = "Comedy";
     const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} />
-    const Completionist = () => <span>trigger a script to take user to next page</span>
+    const Completionist = () => <span>load question 2</span>
 
     const renderer = ({ seconds, completed }) => {
       if (completed) {
