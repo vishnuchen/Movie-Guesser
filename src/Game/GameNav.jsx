@@ -170,12 +170,12 @@ class GameNav extends Component {
     if(ans == "y") {
       this.setState({
         ans:"correct",
-        counter: this.state.counter + 1
+        counter: this.state.counter + 60
       });
     } else {
       this.setState({
         ans:"wrong",
-        counter: this.state.counter + 1
+        counter: this.state.counter + 60
       });
     }
 
