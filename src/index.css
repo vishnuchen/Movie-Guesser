@@ -82,6 +82,13 @@ nav {
   padding: 20px;
 }
 
+.filler {
+  height: 20px;
+  /*background-color: blue;*/
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
 /* Lobby Styles */
 
 .lobby-main {

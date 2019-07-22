@@ -8,10 +8,14 @@ class GameProgressBar extends Component {
   render() {
     return (
       <div className="progress-bar">
-        ==========================(fake progress bar)
+        <Filler counter={this.props.counter} />
       </div>
     );
   }
+}
+
+const Filler = (props) => {
+  return <div className="filler" style={{ width: `${props.counter}%` }} />
 }
 
 export default GameProgressBar;

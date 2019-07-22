@@ -37,7 +37,7 @@ class GameState extends Component {
             <QuizArea checkAnswer={this.props.checkAnswer} ans={this.props.ans} pic={this.props.pic}/>
           </div>
         </div>
-        <GameProgressBar />
+        <GameProgressBar counter={this.props.counter} />
         <div>
         </div>
       </div>
