@@ -10,6 +10,7 @@ class GameNav extends Component {
     super();
     this.state={
       result: "",
+      score: 0,
       correctAnswer: "",
       userAnswer: "",
       counter: 0,
@@ -397,8 +398,11 @@ class GameNav extends Component {
     if(this.state.userAnswer == this.state.correctAnswer) {
       this.setState({
         result: "correct",
+        score: this.state.score++,
         counter: this.state.counter + 60
       });
+      console.log(this.state.score);
+
     } else {
       this.setState({
         result: "wrong",
@@ -417,7 +421,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState makeQuestion={this.makeQuestion} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
+        <GameState score={this.state.score} makeQuestion={this.makeQuestion} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
       </div>
     );
   }
