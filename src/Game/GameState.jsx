@@ -13,23 +13,13 @@ class GameState extends Component {
 
   render() {
     const gameCat = "Comedy";
-    const Completionist = () => <span>load question 2</span>
-
-    const renderer = ({ seconds, completed }) => {
-      if (completed) {
-        return <Completionist />
-      } else {
-        return <span>{seconds}</span>
-      }
-    }
     const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} className="fa-spin" />
 
     return(
       <div>
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          { this.props.result ? "" :
-            <Countdown /> }
+          <Countdown result={this.props.result} />
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
