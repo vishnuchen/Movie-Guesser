@@ -14,6 +14,11 @@ class QuizArea extends Component {
   }
 
   onChange = (e) => {
+    e.preventDefault();
+    let result = e.target.value;
+    console.log(result);
+
+    this.props.userChoice(result);
     this.setState({tans: e.target.value});
     this.props.userChoice(e.target.value);
   }
@@ -39,7 +44,26 @@ class QuizArea extends Component {
           <img src={pics[2]} style={{width:100}} />
           <img src={pics[3]} style={{width:100}} />
         </div>
-        <form id="form1"> 
+
+        <form id="form1">
+          <tr>
+            <td className="answer-checkbox">
+              <input type="radio" name="choice" value="1" onChange={this.onChange}/>
+            </td>
+            <td className="answer-content">
+              This is the correct anwser
+            </td>
+          </tr>
+          <tr>
+            <td className="answer-checkbox">
+              <input type="radio" name="choice" value="2" onChange={this.onChange}/>
+            </td>
+            <td className="answer-content">
+              This is the wrong anwser
+            </td>
+          </tr>
+
+        <form id="form1">
           <table>
             <tbody>
               <tr>
@@ -76,10 +100,11 @@ class QuizArea extends Component {
               </tr>
             </tbody>
           </table>
+
           <button disabled={this.state.buttonDisable} onClick={this.onClick}>Submit</button>
         </form>
         <h3>{this.props.result}</h3>
-        {/* <form id="form1"> 
+        {/* <form id="form1">
           <tr>
             <td className="answer-checkbox">
               <input type="checkbox" />
