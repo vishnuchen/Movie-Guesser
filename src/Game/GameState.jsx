@@ -28,9 +28,10 @@ class GameState extends Component {
       <div>
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          <Countdown date={Date.now() + 30000} renderer={renderer}>
-            <Completionist />
-          </Countdown>
+          { this.props.result ? "" :
+            <Countdown date={Date.now() + 5000} renderer={renderer}>
+              <Completionist />
+            </Countdown> }
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
