@@ -7,8 +7,8 @@ import Countdown from 'react-countdown-now';
 
 
 class GameState extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -34,7 +34,7 @@ class GameState extends Component {
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
+            <QuizArea  makeQuestion={this.props.makeQuestion} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
         <GameProgressBar counter={this.props.counter} />
