@@ -11,7 +11,7 @@ vishnu=# CREATE DATABASE movieguesser;
 CREATE DATABASE
 vishnu=# \c movieguesser;
 You are now connected to database "movieguesser" as user "vishnu".
-movieguesser=# CREATE TABLE movies (
+movieguesser=# CREATE TABLE movies (git
 movieguesser(# id BIGSERIAL PRIMARY KEY,
 movieguesser(# title VARCHAR(50)
 movieguesser(# );
