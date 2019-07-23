@@ -7,11 +7,17 @@ class GameProgressBar extends Component {
 
   render() {
     return (
-      <div className="progress-bar">
-        ==========================(fake progress bar)
+      <div className="progress-bar-container">
+        <div className="progress-bar">
+          <Filler counter={this.props.counter} />
+        </div>
       </div>
     );
   }
+}
+
+const Filler = (props) => {
+  return <div className="filler" style={{ width: `${props.counter}px` }} />
 }
 
 export default GameProgressBar;
