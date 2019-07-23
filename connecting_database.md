@@ -295,3 +295,58 @@ movieguesser=# SELECT * FROM knex_migrations;
 (1 row)
 
 movieguesser=# 
+
+
+.///////////////////////////////////////////////////
+
+
+vishnu@Vishu:~/lighthouse/finalProject$ knex migrate:latest
+Using environment: development
+Batch 1 run: 2 migrations
+vishnu@Vishu:~/lighthouse/finalProject$ psql
+psql (11.4 (Ubuntu 11.4-0ubuntu0.19.04.1))
+Type "help" for help.
+
+vishnu=# \l
+                                   List of databases
+     Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+--------------+----------+----------+-------------+-------------+-----------------------
+ movieguesser | vishnu   | UTF8     | en_CA.UTF-8 | en_CA.UTF-8 | =Tc/vishnu           +
+              |          |          |             |             | vishnu=CTc/vishnu    +
+              |          |          |             |             | movies=CTc/vishnu
+ postgres     | postgres | UTF8     | en_CA.UTF-8 | en_CA.UTF-8 | 
+ template0    | postgres | UTF8     | en_CA.UTF-8 | en_CA.UTF-8 | =c/postgres          +
+              |          |          |             |             | postgres=CTc/postgres
+ template1    | postgres | UTF8     | en_CA.UTF-8 | en_CA.UTF-8 | =c/postgres          +
+              |          |          |             |             | postgres=CTc/postgres
+ vishnu       | postgres | UTF8     | en_CA.UTF-8 | en_CA.UTF-8 | 
+(5 rows)
+
+vishnu=# /c movieguesser
+vishnu-# /dt
+vishnu-# \c movieguesser
+You are now connected to database "movieguesser" as user "vishnu".
+movieguesser-# \dt
+               List of relations
+ Schema |         Name         | Type  | Owner  
+--------+----------------------+-------+--------
+ public | images               | table | movies
+ public | knex_migrations      | table | movies
+ public | knex_migrations_lock | table | movies
+ public | movies               | table | movies
+(4 rows)
+
+movieguesser-# SELECT * FROM images
+movieguesser-# ;
+ERROR:  syntax error at or near "/"
+LINE 1: /c movieguesser
+        ^
+movieguesser=# SELECT * FROM images;
+ id | movie_id | file_path 
+----+----------+-----------
+(0 rows)
+
+movieguesser=# SELECT * FROM movies;
+ id | title 
+----+-------
+(0 rows)

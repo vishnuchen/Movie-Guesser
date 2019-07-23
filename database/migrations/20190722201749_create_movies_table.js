@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('movies', function(table) {
-    table.increments();
+    table.increments('id').primary();
     table.string('title').notNullable();
   })
 };
