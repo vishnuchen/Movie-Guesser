@@ -8,7 +8,7 @@ class GameNav extends Component {
   constructor() {
     super();
     this.state={
-      result: "wrong",
+      result: "",
       correctAnswer: 1,
       userAnswer: 0,
       counter: 0,
