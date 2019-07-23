@@ -17,6 +17,7 @@ class GameState extends Component {
 
     return(
       <div>
+        {this.props.score}
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
           <Countdown result={this.props.result} />

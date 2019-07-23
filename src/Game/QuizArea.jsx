@@ -8,7 +8,7 @@ class QuizArea extends Component {
 
     this.state={
       buttonDisable: false,
-      tans: "",
+      tans:"",
       mvq: this.props.makeQuestion()
     }
   }
@@ -20,28 +20,29 @@ class QuizArea extends Component {
 
     this.props.userChoice(result);
     this.setState({tans: e.target.value});
-    console.log(this.state.tans);
     this.props.userChoice(e.target.value);
   }
 
   onClick = (e) => {
-    console.log(this.state.tans);
     this.setState({buttonDisable: true});
     this.props.checkAnswer();
   }
 
   render() {
     const mvq = this.state.mvq;
-    const pic = "https://image.tmdb.org/t/p/original" + mvq.moviePic.file_path;
+    const pics = [];
+    for (let pic of mvq.moviePic) {
+      pics.push("https://image.tmdb.org/t/p/original" + pic.file_path);
+    }
     const movieQues = mvq.questionChoice;
-
+    
     return (
       <div>
         <div className="movie-img">
-          {/* <img src={pic1} style={{width:100}} />
-          <img src={pic2} style={{width:100}} />
-          <img src={pic3} style={{width:100}} /> */}
-          <img src={pic} style={{width:100}} />
+          <img src={pics[0]} style={{width:100}} />
+          <img src={pics[1]} style={{width:100}} />
+          <img src={pics[2]} style={{width:100}} />
+          <img src={pics[3]} style={{width:100}} />
         </div>
 
         <form id="form1">
