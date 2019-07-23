@@ -5,12 +5,6 @@ import React, {Component} from "react";
 class QuizArea extends Component {
   constructor(props) {
     super(props);
-
-    this.state={
-      buttonDisable: false,
-      tans:"",
-      mvq: this.props.makeQuestion()
-    }
   }
 
   onChange = (e) => {
@@ -24,12 +18,13 @@ class QuizArea extends Component {
   }
 
   onClick = (e) => {
-    this.setState({buttonDisable: true});
+    e.preventDefault();
+    this.props.disableButton();
     this.props.checkAnswer();
   }
 
   render() {
-    const mvq = this.state.mvq;
+    const mvq = this.props.mvq;
     const pics = [];
     for (let pic of mvq.moviePic) {
       pics.push("https://image.tmdb.org/t/p/original" + pic.file_path);
@@ -44,31 +39,12 @@ class QuizArea extends Component {
           <img src={pics[2]} style={{width:100}} />
           <img src={pics[3]} style={{width:100}} />
         </div>
-
-        <form id="form1">
-          <tr>
-            <td className="answer-checkbox">
-              <input type="radio" name="choice" value="1" onChange={this.onChange}/>
-            </td>
-            <td className="answer-content">
-              This is the correct anwser
-            </td>
-          </tr>
-          <tr>
-            <td className="answer-checkbox">
-              <input type="radio" name="choice" value="2" onChange={this.onChange}/>
-            </td>
-            <td className="answer-content">
-              This is the wrong anwser
-            </td>
-          </tr>
-
         <form id="form1">
           <table>
             <tbody>
               <tr>
                 <td className="answer-checkbox">
-                  <input type="radio" name="choice" value={movieQues[0]} checked={this.state.tans === movieQues[0]} onChange={this.onChange} />
+                  <input type="radio" name="choice" value={movieQues[0]} checked={this.props.userAnswer === movieQues[0]} onChange={this.onChange} />
                 </td>
                 <td className="answer-content">
                   {movieQues[0]}
@@ -76,7 +52,7 @@ class QuizArea extends Component {
               </tr>
               <tr>
                 <td className="answer-checkbox">
-                  <input type="radio" name="choice" value={movieQues[1]} checked={this.state.tans === movieQues[1]} onChange={this.onChange} />
+                  <input type="radio" name="choice" value={movieQues[1]} checked={this.props.userAnswer === movieQues[1]} onChange={this.onChange} />
                 </td>
                 <td className="answer-content">
                 {movieQues[1]}
@@ -84,7 +60,7 @@ class QuizArea extends Component {
               </tr>
               <tr>
                 <td className="answer-checkbox">
-                  <input type="radio" name="choice" value={movieQues[2]} checked={this.state.tans === movieQues[2]} onChange={this.onChange} />
+                  <input type="radio" name="choice" value={movieQues[2]} checked={this.props.userAnswer === movieQues[2]} onChange={this.onChange} />
                 </td>
                 <td className="answer-content">
                 {movieQues[2]}
@@ -92,7 +68,7 @@ class QuizArea extends Component {
               </tr>
               <tr>
                 <td className="answer-checkbox">
-                  <input type="radio" name="choice" value={movieQues[3]} checked={this.state.tans === movieQues[3]} onChange={this.onChange} />
+                  <input type="radio" name="choice" value={movieQues[3]} checked={this.props.userAnswer === movieQues[3]} onChange={this.onChange} />
                 </td>
                 <td className="answer-content">
                 {movieQues[3]}
@@ -100,29 +76,9 @@ class QuizArea extends Component {
               </tr>
             </tbody>
           </table>
-
-          <button disabled={this.state.buttonDisable} onClick={this.onClick}>Submit</button>
+          {/* <button disabled={this.props.buttonDisable} onClick={this.onClick}>Submit</button> */}
         </form>
         <h3>{this.props.result}</h3>
-        {/* <form id="form1">
-          <tr>
-            <td className="answer-checkbox">
-              <input type="checkbox" />
-            </td>
-            <td className="answer-content">
-              This is the correct anwser
-            </td>
-          </tr>
-          <tr>
-            <td className="answer-checkbox">
-              <input type="checkbox" />
-            </td>
-            <td className="answer-content">
-              This is the wrong anwser
-            </td>
-          </tr>
-          <button type="submit" form="form1" onClick={this.onClick}>Submit</button>
-        </form> */}
       </div>
     )
   }

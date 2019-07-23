@@ -16,11 +16,20 @@ class Countdown extends React.Component {
     });
     this.timer = setInterval(() => {
       const newTime = this.state.timerTime - 1;
-      if (newTime >= 0) {
+      if (newTime > 0) {
         this.setState({
           timerTime: newTime
         });
-        console.log(this.state.timerTime)
+        console.log(this.state.timerTime);
+      } else {
+        this.props.checkAnswer();
+        this.props.nextQuestion();
+        this.props.enableButton();
+        // if (this.props.userAnswer === "")
+        // 
+        this.setState({
+          timerTime: 10,
+        })
       }
     }, 1000);
   }
@@ -31,7 +40,7 @@ class Countdown extends React.Component {
         {window.onload = this.startTimer}
         <h1>{this.state.timerTime}</h1>
         {console.log(this.props.result)}
-        { this.props.result ? clearInterval(this.timer) : "" }
+        {/* { this.props.result ? clearInterval(this.timer) : "" } */}
       </div>
     );
   }
