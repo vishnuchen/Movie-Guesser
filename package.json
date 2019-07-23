@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "knex": "^0.19.0",
+    "pg": "^7.11.0",
     "react": "^16.8.6",
     "react-countdown-now": "^2.1.1",
     "react-dom": "^16.8.6",
@@ -23,5 +25,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "Perry test",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JingfZhang/movie-guesser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JingfZhang/movie-guesser/issues"
+  },
+  "homepage": "https://github.com/JingfZhang/movie-guesser#readme"
 }
