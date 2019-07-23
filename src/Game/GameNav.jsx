@@ -9,7 +9,7 @@ class GameNav extends Component {
   constructor() {
     super();
     this.state={
-      result: "wrong",
+      result: "",
       correctAnswer: "",
       userAnswer: "",
       counter: 0,
@@ -353,23 +353,39 @@ class GameNav extends Component {
     return movie
   }
 
+  shuffle = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
   makeQuestion =  () => {
     let movie = this.chooseMovie();
     let movieId = movie.id.toString();
-    let moviePic = this.state.image[movieId][0];
+    let shuffledMoviePic = this.shuffle(this.state.image[movieId]);
+    let moviePic = [];
+    if (shuffledMoviePic.length >= 4){
+      for (let i = 0; i < 4; i++) {
+        moviePic.push(shuffledMoviePic[i]);
+      }
+    } else {
+      for (let i = 0; i < shuffledMoviePic.length; i++) {
+        moviePic.push(shuffledMoviePic[i]);
+      }
+    }
     let otherMovieArray = [];
     for (let mv of this.state.movies) {
       if (mv.title != movie.title) {
         otherMovieArray.push(mv.title);
       }
     }
-    let questionChoice = [movie.title, otherMovieArray[0], otherMovieArray[1], otherMovieArray[2]];
+    let shuffledOtherMovieArray = this.shuffle(otherMovieArray)
+    let questionChoice = [movie.title, shuffledOtherMovieArray[0], shuffledOtherMovieArray[1], shuffledOtherMovieArray[2]];
+    let shuffledQuestionChoice = this.shuffle(questionChoice);
 
     this.setState({correctAnswer: movie.title})
 
     return {
       "moviePic": moviePic,
-      "questionChoice": questionChoice
+      "questionChoice": shuffledQuestionChoice
     }
   }
 
