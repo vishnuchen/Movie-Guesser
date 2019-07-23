@@ -13,7 +13,7 @@ class GameState extends Component {
 
   render() {
     const gameCat = "Comedy";
-    const Completionist = () => <span>load question 2</span>
+    const Completionist = () => <span>Load Question 2</span>
 
     const renderer = ({ seconds, completed }) => {
       if (completed) {
@@ -26,9 +26,10 @@ class GameState extends Component {
 
     return(
       <div>
+        {this.props.score}
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          { this.props.result ? "" :
+            { this.props.result ? "" :
             <Countdown date={Date.now() + 5000} renderer={renderer}>
               <Completionist />
             </Countdown> }
