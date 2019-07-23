@@ -28,7 +28,7 @@ class GameState extends Component {
       <div>
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          <Countdown date={Date.now() + 30000} renderer={renderer}>
+          <Countdown date={Date.now() + 5000} renderer={renderer}>
             <Completionist />
           </Countdown>
         </div>
