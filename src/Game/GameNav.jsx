@@ -359,6 +359,7 @@ class GameNav extends Component {
   }
 
   makeQuestion =  () => {
+    this.setState({result: ""});
     let movie = this.chooseMovie();
     let movieId = movie.id.toString();
     let shuffledMoviePic = this.shuffle(this.state.image[movieId]);
@@ -402,6 +403,7 @@ class GameNav extends Component {
         counter: this.state.counter + 60
       });
       console.log(this.state.score);
+    this.setState({userAnswer: ""});
 
     } else {
       this.setState({
@@ -421,7 +423,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState score={this.state.score} makeQuestion={this.makeQuestion} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
+        <GameState userAnswer={this.state.userAnswer} score={this.state.score} makeQuestion={this.makeQuestion} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
       </div>
     );
   }

@@ -9,8 +9,23 @@ import Countdown from './Countdown.jsx';
 class GameState extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      buttonDisable: false,
+      mvq: this.props.makeQuestion()
+    }
   }
 
+  enableButton = () => {
+    this.setState({buttonDisable: false});
+  }
+
+  disableButton = () => {
+    this.setState({buttonDisable: true});
+  }
+
+  nextQuestion = () => {
+    this.setState({mvq: this.props.makeQuestion()});
+  }
   render() {
     const gameCat = "Comedy";
     const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} className="fa-spin" />
@@ -20,16 +35,14 @@ class GameState extends Component {
         {this.props.score}
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          <Countdown result={this.props.result} />
+          <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} />
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea  makeQuestion={this.props.makeQuestion} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
+            <QuizArea userAnswer={this.props.userAnswer} buttonDisable={this.state.buttonDisable} disableButton={this.disableButton} mvq={this.state.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
         <GameProgressBar counter={this.props.counter} />
-        <div>
-        </div>
       </div>
     );
   }
