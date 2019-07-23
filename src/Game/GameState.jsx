@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 import GameProgressBar from './GameProgressBar.jsx';
 import QuizArea from './QuizArea.jsx';
-import Countdown from 'react-countdown-now';
+import Countdown from './Countdown.jsx';
 
 
 class GameState extends Component {
@@ -29,9 +29,7 @@ class GameState extends Component {
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
           { this.props.result ? "" :
-            <Countdown date={Date.now() + 5000} renderer={renderer}>
-              <Completionist />
-            </Countdown> }
+            <Countdown /> }
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
