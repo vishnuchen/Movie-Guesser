@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import GameState from './GameState.jsx';
 import { randomBytes } from 'crypto';
+import AfterGame from './AfterGame.jsx';
 
 
 class GameNav extends Component {
   constructor() {
     super();
     this.state={
+      gameFinished: false,
       result: "",
       score: 0,
       correctAnswer: "",
@@ -358,7 +360,7 @@ class GameNav extends Component {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  makeQuestion =  () => {
+  makeQuestionTypeOne =  () => {
     this.setState({result: ""});
     let movie = this.chooseMovie();
     let movieId = movie.id.toString();
@@ -397,13 +399,14 @@ class GameNav extends Component {
 
   checkAnswer = () => {
     if(this.state.userAnswer == this.state.correctAnswer) {
+      let score = this.state.score;
       this.setState({
         result: "correct",
-        score: this.state.score++,
+        score: score + 1,
         counter: this.state.counter + 60
       });
       console.log(this.state.score);
-    this.setState({userAnswer: ""});
+      this.setState({userAnswer: ""});
 
     } else {
       this.setState({
@@ -412,6 +415,14 @@ class GameNav extends Component {
       });
     }
 
+  }
+
+  gameFinish = () => {
+    if ((this.state.counter / 60) >=5 ) {
+      return <AfterGame score={this.state.score}/>
+    } else {
+      return <GameState userAnswer={this.state.userAnswer} score={this.state.score} makeQuestionTypeOne={this.makeQuestionTypeOne} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
+    }
   }
 
   render() {
@@ -423,7 +434,7 @@ class GameNav extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameState userAnswer={this.state.userAnswer} score={this.state.score} makeQuestion={this.makeQuestion} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} />
+        <this.gameFinish />
       </div>
     );
   }
