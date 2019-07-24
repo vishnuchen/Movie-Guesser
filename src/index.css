@@ -58,11 +58,21 @@ nav {
 
 /* Game Category styles */
 
-.timer {
+.game-header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
   padding: 20px;
+}
+
+.game-header div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-header div h1, .game-header div h2, .game-header div h3 {
+  margin: 5px;
 }
 
 .game-cat {

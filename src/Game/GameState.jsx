@@ -32,9 +32,15 @@ class GameState extends Component {
 
     return(
       <div>
-        {this.props.score}
-        <div className="timer">
-          <span>Category: {gameCat} (fake category)</span>
+        <div className="game-header">
+          <div>
+            <h1>Score</h1>
+            <h3>{this.props.score}</h3>
+          </div>
+          <div>
+            <h1>Category</h1>
+            <h3>{gameCat}</h3>
+          </div>
           <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} />
         </div>
         <div className="game-cat">
