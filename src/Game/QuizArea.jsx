@@ -8,9 +8,7 @@ class QuizArea extends Component {
   }
 
   onChange = (e) => {
-    e.preventDefault();
     let result = e.target.value;
-    console.log(result);
 
     this.props.userChoice(result);
     this.setState({tans: e.target.value});

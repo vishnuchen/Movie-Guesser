@@ -10,21 +10,12 @@ class GameState extends Component {
   constructor(props) {
     super(props);
     this.state={
-      buttonDisable: false,
-      mvq: this.props.makeQuestion()
+      mvq: this.props.makeQuestionTypeOne()
     }
   }
 
-  enableButton = () => {
-    this.setState({buttonDisable: false});
-  }
-
-  disableButton = () => {
-    this.setState({buttonDisable: true});
-  }
-
   nextQuestion = () => {
-    this.setState({mvq: this.props.makeQuestion()});
+    this.setState({mvq: this.props.makeQuestionTypeOne()});
   }
   render() {
     const gameCat = "Comedy";
@@ -35,11 +26,11 @@ class GameState extends Component {
         {this.props.score}
         <div className="timer">
           <span>Category: {gameCat} (fake category)</span>
-          <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} />
+          <Countdown counter={this.props.counter} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} />
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea userAnswer={this.props.userAnswer} buttonDisable={this.state.buttonDisable} disableButton={this.disableButton} mvq={this.state.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
+            <QuizArea userAnswer={this.props.userAnswer} mvq={this.state.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
         <GameProgressBar counter={this.props.counter} />
