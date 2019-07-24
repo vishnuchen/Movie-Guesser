@@ -34,11 +34,11 @@ class GameState extends Component {
       <div>
         <div className="game-header">
           <div>
-            <h1>Score</h1>
+            <h2>Score</h2>
             <h3>{this.props.score}</h3>
           </div>
           <div>
-            <h1>Category</h1>
+            <h2>Category</h2>
             <h3>{gameCat}</h3>
           </div>
           <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} />
