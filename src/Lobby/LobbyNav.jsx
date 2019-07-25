@@ -11,6 +11,10 @@ class LobbyNav extends Component {
   constructor() {
     super();
     this.socket = socketClient;
+    this.state = {
+      loginShow: false,
+      username: ""
+    }
   }
 
   componentDidMount() {
@@ -18,10 +22,7 @@ class LobbyNav extends Component {
     this.socket.on('test', function(msg) {
       console.log('connected to server');
     })
-    this.state = {
-      loginShow: false,
-      username: ""
-    }
+    
   }
 
   toggleLogin = () => {
