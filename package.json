@@ -12,7 +12,8 @@
     "react-countdown-now": "^2.1.1",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
