@@ -14,6 +14,12 @@ class Login extends Component {
     super();
   }
 
+  onKeyDown = (e) => {
+    if (e.key==="Enter") {
+      this.props.setUsername(e.target.value);
+    }
+  }
+
   render() {
     if (!this.props.show) {
       return null;
@@ -21,9 +27,9 @@ class Login extends Component {
 
     return(
       <div className="modal">
-        <input name="username" />
+        <input name="username" onKeyDown={this.onKeyDown} />
         <button onClick={this.props.onClose}>
-          Close
+          Enter
         </button>
       </div>
     );

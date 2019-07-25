@@ -20,6 +20,14 @@ class LobbyNav extends Component {
     });
   }
 
+  setUsername = (username) => {
+    this.setState({
+      username: username
+    }, () => {
+      console.log(this.state.username)
+    })
+  }
+
   render() {
     const filmElement = <FontAwesomeIcon icon={faFilm} />
     return (
@@ -33,9 +41,7 @@ class LobbyNav extends Component {
               Login
             </button>
 
-            <Login show={this.state.loginShow} onClose={this.toggleLogin}>
-              Login content blahblahblah
-            </Login>
+            <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
         </nav>
         <div className="lobby-main">
           <div className="game-info">
