@@ -5,8 +5,12 @@ class Countdown extends React.Component {
     super(props);
     this.state = {
       timerStart: 0,
-      timerTime: 1,
+      timerTime: 5,
     }
+  }
+
+  componentDidMount() {
+    this.startTimer();
   }
 
   startTimer = () => {
@@ -26,17 +30,20 @@ class Countdown extends React.Component {
           this.props.checkAnswer();
           this.props.nextQuestion();
           this.setState({
-            timerTime: 1,
+            timerTime: 5,
           })
-        } 
+        }
       }
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
     return(
       <div>
-        {window.onload = this.startTimer}
         <h1>{this.state.timerTime}</h1>
         {console.log(this.props.result)}
         {/* { this.props.result ? clearInterval(this.timer) : "" } */}
