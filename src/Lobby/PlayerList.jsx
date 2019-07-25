@@ -20,11 +20,7 @@ class PlayerList extends Component{
       <div>
         <h1>Players</h1>
         <ul>
-          <li>player1</li>
-          {/* <li>player2</li>
-          <li>player3</li>
-          <li>player4</li>
-          <li>player5</li> */}
+          <li>{this.props.list}</li>
         </ul>
       </div>
     ); 
