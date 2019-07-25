@@ -3,10 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import GameInfo from './GameInfo.jsx';
 import PlayerList from './PlayerList.jsx';
+import openSocket from 'socket.io-client';
 
+const socketClient = openSocket('http://localhost:3001');
 class LobbyNav extends Component {
   constructor() {
     super();
+    this.socket = socketClient;
+  }
+
+  componentDidMount() {
+    this.socket.emit('test');
+    this.socket.on('test', function(msg) {
+      console.log('connected to server');
+    })
   }
 
   render() {

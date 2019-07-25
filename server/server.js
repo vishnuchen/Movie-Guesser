@@ -3,13 +3,14 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile('/home/vishnu/lighthouse/movieguesser/src/Lobby/LobbyNav.jsx'); //react file for visual
 });
 
 io.on('connection', function(socket){
   console.log('a user connected1');
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+  socket.on('test', function(msg){
+    console.log(msg);
+    io.emit('test', msg);
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');
