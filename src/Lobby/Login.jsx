@@ -15,7 +15,7 @@ class Login extends Component {
   }
 
   onKeyDown = (e) => {
-    if (e.key==="Enter") {
+    if (e.key === "Enter") {
       this.props.setUsername(e.target.value);
     }
   }

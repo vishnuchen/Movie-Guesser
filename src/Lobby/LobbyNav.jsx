@@ -23,9 +23,7 @@ class LobbyNav extends Component {
   setUsername = (username) => {
     this.setState({
       username: username
-    }, () => {
-      console.log(this.state.username)
-    })
+    }, this.toggleLogin())
   }
 
   render() {
