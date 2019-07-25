@@ -3,10 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import GameInfo from './GameInfo.jsx';
 import PlayerList from './PlayerList.jsx';
+import Login from './Login.jsx'
 
 class LobbyNav extends Component {
   constructor() {
     super();
+    this.state = {
+      loginShow: false,
+      username: ""
+    }
+  }
+
+  toggleLogin = () => {
+    this.setState({
+      loginShow: !this.state.loginShow
+    });
   }
 
   render() {
@@ -17,6 +28,14 @@ class LobbyNav extends Component {
             <a className="navbar-brand" href="/">
               {filmElement}MovieGuesser
             </a>
+
+            <button onClick={this.toggleLogin}>
+              Login
+            </button>
+
+            <Login show={this.state.loginShow} onClose={this.toggleLogin}>
+              Login content blahblahblah
+            </Login>
         </nav>
         <div className="lobby-main">
           <div className="game-info">
