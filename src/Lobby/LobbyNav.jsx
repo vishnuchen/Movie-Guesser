@@ -22,6 +22,9 @@ class LobbyNav extends Component {
     this.socket.on('test', function(msg) {
       console.log('connected to server');
     })
+    this.socket.on('name_display', (username) => {
+      console.log(username)
+    })
     
   }
 
@@ -34,7 +37,10 @@ class LobbyNav extends Component {
   setUsername = (username) => {
     this.setState({
       username: username
-    }, this.toggleLogin())
+    }, () => {
+      this.toggleLogin();
+      this.socket.emit('player_entrance', username)
+    })
   }
 
   render() {
