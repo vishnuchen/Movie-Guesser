@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 
 class Countdown extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       timerStart: 0,
-      timerTime: 10
+      timerTime: 5,
     }
+  }
+
+  componentDidMount() {
+    this.startTimer();
   }
 
   startTimer = () => {
@@ -15,29 +19,31 @@ class Countdown extends React.Component {
       timerStart: this.state.timerTime
     });
     this.timer = setInterval(() => {
-      const newTime = this.state.timerTime - 1;
-      if (newTime > 0) {
-        this.setState({
-          timerTime: newTime
-        });
-        console.log(this.state.timerTime);
-      } else {
-        this.props.checkAnswer();
-        this.props.nextQuestion();
-        this.props.enableButton();
-        // if (this.props.userAnswer === "")
-        // 
-        this.setState({
-          timerTime: 10,
-        })
+      if ((this.props.counter / 60) <= 4) {
+        const newTime = this.state.timerTime - 1;
+        if (newTime > 0) {
+          this.setState({
+            timerTime: newTime
+          });
+          console.log(this.state.timerTime);
+        } else {
+          this.props.checkAnswer();
+          this.props.nextQuestion();
+          this.setState({
+            timerTime: 5,
+          })
+        }
       }
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
     return(
       <div>
-        {window.onload = this.startTimer}
         <h1>{this.state.timerTime}</h1>
         {console.log(this.props.result)}
         {/* { this.props.result ? clearInterval(this.timer) : "" } */}

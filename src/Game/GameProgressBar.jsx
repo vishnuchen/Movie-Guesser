@@ -9,7 +9,7 @@ class GameProgressBar extends Component {
     return (
       <div className="progress-bar-container">
         <div className="progress-bar">
-          <Filler counter={this.props.counter} />
+          <Filler counter={this.props.counter + 60} />
         </div>
       </div>
     );
