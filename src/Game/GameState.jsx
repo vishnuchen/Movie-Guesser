@@ -32,7 +32,7 @@ class GameState extends Component {
             <h2>Category</h2>
             <h3>{gameCat}</h3>
           </div>
-          <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} />
+          <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} counter={this.props.counter} />
         </div>
         <div className="game-cat">
           <div className="game-cat-content">

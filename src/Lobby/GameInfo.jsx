@@ -7,7 +7,7 @@ import {
   Link,
   Redirect,
   withRouter
-} from "react-router-dom"; 
+} from "react-router-dom";
 
 class GameInfo extends Component{
   constructor() {
@@ -23,9 +23,14 @@ class GameInfo extends Component{
         <h2>Category: {gameCategory}</h2>
         <h4>copy and send this url to friends</h4>
         <p className="lobby-url">URL: {lobbyUrl}</p>
-        <Link to={gameUrl}>Start</Link> 
+        <Link to={{
+          pathname: gameUrl,
+          // state: {
+          //   username
+          // }
+        }}>Start</Link>
       </div>
-    ); 
+    );
   }
 }
 
