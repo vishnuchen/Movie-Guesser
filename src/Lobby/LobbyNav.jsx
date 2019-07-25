@@ -13,7 +13,8 @@ class LobbyNav extends Component {
     this.socket = socketClient;
     this.state = {
       loginShow: false,
-      username: ""
+      username: "",
+      otherUsers: []
     }
   }
 
@@ -23,7 +24,12 @@ class LobbyNav extends Component {
       console.log('connected to server');
     })
     this.socket.on('name_display', (username) => {
-      console.log(username)
+      console.log(username);
+      this.setState({
+        otherUsers: this.state.otherUsers.concat(username)
+      }, () => {
+        console.log(this.state.otherUsers)
+      })
     })
     
   }
