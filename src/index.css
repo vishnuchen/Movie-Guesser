@@ -155,6 +155,77 @@ input[type=radio]:checked + span {
   font-size: 0.8rem;
 }
 
+/* Lobby Styles */
+
+.lobby-main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.game-info, .player-list {
+  border: 1px solid black;
+  height: 82vh;
+  padding: 20px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+}
+
+.game-info > * {
+  text-align: center;
+}
+
+.player-list {
+  display: flex;
+  justify-content: center;
+}
+
+.player-list > * {
+  text-align: center;
+}
+
+.player-list-list {
+  padding: 0;
+}
+
+.player-list-list li {
+  list-style: none;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  margin: auto 0;
+  display: flex;
+  flex-direction: row;
+}
+
+input[name="username"] {
+  height: 27px;
+  margin-right: 10px;
+  padding: 0;
+}
+
+button[name="login"] {
+  height: 30px;
+  width: 50px;
+  margin-left: 10px;
+}
+
+.start {
+  display: inline-block;
+  height: 20px;
+  width: 50px;
+  border: 2px solid blue;
+  border-radius: 5px;
+}
+
 @media screen and (max-device-width) {
 
 }
@@ -184,17 +255,4 @@ input[type=radio]:checked + span {
   height: 20px;
   background-color: blue;
   border-radius: 50px;
-}
-
-/* Lobby Styles */
-
-.lobby-main {
-  display: grid;
-  grid-template-columns: 70% 30%;
-}
-
-.game-info, .player-list {
-  border: 1px solid black;
-  height: 82vh;
-  padding: 20px;
 }

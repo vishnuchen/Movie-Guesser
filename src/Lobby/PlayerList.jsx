@@ -7,7 +7,7 @@ import {
   Link,
   Redirect,
   withRouter
-} from "react-router-dom"; 
+} from "react-router-dom";
 
 class PlayerList extends Component{
   constructor() {
@@ -37,11 +37,11 @@ class PlayerList extends Component{
     return (
       <div>
         <h1>Players</h1>
-        <ul>
+        <ul class="player-list-list">
           {listItemMapper}      
         </ul>
       </div>
-    ); 
+    );
   }
 }
 

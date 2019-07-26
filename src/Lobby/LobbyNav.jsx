@@ -29,7 +29,6 @@ class LobbyNav extends Component {
         game: users
       })
     })
-    
   }
 
   toggleLogin = () => {
@@ -53,15 +52,13 @@ class LobbyNav extends Component {
     return (
       <div>
         <nav className="navbar" role="navigation" aria-label="main navigation">
-            <a className="navbar-brand" href="/">
-              {filmElement}MovieGuesser
-            </a>
-
-            <button onClick={this.toggleLogin}>
-              Login
-            </button>
-
-            <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
+            <a className="navbar-brand" href="/">{filmElement}MovieGuesser</a>
+            <div className="login">
+              <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
+              <button name="login" onClick={this.toggleLogin}>
+                Join
+              </button>
+            </div>
         </nav>
         <div className="lobby-main">
           <div className="game-info">
