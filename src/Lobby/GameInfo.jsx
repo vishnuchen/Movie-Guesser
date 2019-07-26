@@ -23,12 +23,15 @@ class GameInfo extends Component{
         <h2>Category: {gameCategory}</h2>
         <h4>copy and send this url to friends</h4>
         <p className="lobby-url">URL: {lobbyUrl}</p>
-        <Link to={{
-          pathname: gameUrl,
-          // state: {
-          //   username
-          // }
-        }}>Start</Link>
+
+        <div>
+          <Link to={{
+            pathname: gameUrl,
+            // state: {
+            //   username
+            // }
+          }}><span className="start">Start</span></Link>
+        </div>
       </div>
     );
   }
