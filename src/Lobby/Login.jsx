@@ -10,8 +10,8 @@ import {
 } from "react-router-dom";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   onKeyDown = (e) => {
