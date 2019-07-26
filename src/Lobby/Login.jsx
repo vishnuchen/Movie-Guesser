@@ -28,9 +28,6 @@ class Login extends Component {
     return(
       <div className="modal">
         <input name="username" onKeyDown={this.onKeyDown} />
-        <button onClick={this.props.onClose}>
-          Enter
-        </button>
       </div>
     );
   }
