@@ -14,7 +14,7 @@ io.on('connection', function(socket){
   });
   socket.on('player_entrance', (users) => {
     gameObject.push(users);
-    console.log(gameObject)
+    // console.log(gameObject)
     io.emit('name_display', gameObject)
   })
   socket.on('disconnect', function(){
