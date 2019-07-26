@@ -12,6 +12,10 @@ io.on('connection', function(socket){
     console.log(msg);
     io.emit('test', msg);
   });
+  socket.on('player_entrance', (users) => {
+    console.log(users);
+    io.emit('name_display', users)
+  })
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
