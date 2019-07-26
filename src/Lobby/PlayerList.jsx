@@ -33,8 +33,6 @@ class PlayerList extends Component{
     let listItemMapper = playerNames.map((item) => {
       return <li>{item}</li>
     })
-
-    console.log(playerNames)
     
     return (
       <div>
