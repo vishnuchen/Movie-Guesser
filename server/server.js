@@ -13,13 +13,16 @@ io.on('connection', function(socket){
     io.emit('test', msg);
   });
   socket.on('player_entrance', (users) => {
-    console.log(users);
-    io.emit('name_display', users)
+    gameObject.push(users);
+    // console.log(gameObject)
+    io.emit('name_display', gameObject)
   })
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
 });
+
+let gameObject = [];
 
 http.listen(3001, function(){
   console.log('listening on *:3001');

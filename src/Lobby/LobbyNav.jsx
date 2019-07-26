@@ -23,10 +23,10 @@ class LobbyNav extends Component {
     this.socket.on('test', function(msg) {
       console.log('connected to server');
     })
-    this.socket.on('name_display', (users) => {
-      
+    this.socket.on('name_display', (gameObject) => {
+      console.log('this is the gameObject', gameObject)
       this.setState({
-        game: users
+        game: gameObject
       })
     })
   }
@@ -39,12 +39,12 @@ class LobbyNav extends Component {
 
   setUsername = (username) => {
     let new_player = { [username]: 0 }
-    this.setState({
-      game: this.state.game.concat(new_player)
-    }, () => {
+    // this.setState({
+    //   game: this.state.game.concat(new_player)
+    // }, () => {
       this.toggleLogin();
-      this.socket.emit('player_entrance', this.state.game)
-    })
+      this.socket.emit('player_entrance', new_player)
+    // })
   }
 
   render() {
