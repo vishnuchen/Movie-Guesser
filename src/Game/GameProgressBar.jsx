@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 
 class GameProgressBar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
     return (
-      <div className="progress-bar-container">
         <div className="progress-bar">
           <Filler counter={this.props.counter + 60} />
         </div>
-      </div>
     );
   }
 }

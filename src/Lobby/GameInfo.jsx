@@ -10,8 +10,8 @@ import {
 } from "react-router-dom";
 
 class GameInfo extends Component{
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

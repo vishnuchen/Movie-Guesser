@@ -10,8 +10,8 @@ import {
 } from "react-router-dom";
 
 class PlayerList extends Component{
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   // playerName = () => {
@@ -33,12 +33,12 @@ class PlayerList extends Component{
     let listItemMapper = playerNames.map((item) => {
       return <li>{item}</li>
     })
-    
+
     return (
       <div>
-        <h1>Players</h1>
-        <ul class="player-list-list">
-          {listItemMapper}      
+        <h2>Players</h2>
+        <ul className="player-list-list">
+          {listItemMapper}
         </ul>
       </div>
     );
