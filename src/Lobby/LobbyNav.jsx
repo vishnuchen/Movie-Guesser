@@ -13,8 +13,10 @@ class LobbyNav extends Component {
     this.socket = socketClient;
     this.state = {
       loginShow: false,
-      username: "",
-      game: []
+      currentPlayer: {
+        name:"",
+        score: 0
+      },
     }
   }
 

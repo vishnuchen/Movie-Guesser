@@ -10,17 +10,17 @@ import {
 } from "react-router-dom";
 
 class GameInfo extends Component{
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    const gameCategory = "Comedy";
-    const lobbyUrl = "localhost:3000/Lobby";
+    // const gameCategory = "Comedy";
+    const lobbyUrl = "localhost:3000/lobby";
     const gameUrl = "/game/dksdjfskd";
     return (
       <div>
-        <h2>Category: {gameCategory}</h2>
+        {/* <h2>Category: {gameCategory}</h2> */}
         <h4>copy and send this url to friends</h4>
         <p className="lobby-url">URL: {lobbyUrl}</p>
 
@@ -28,7 +28,7 @@ class GameInfo extends Component{
           <Link to={{
             pathname: gameUrl,
             // state: {
-            //   username
+            //   playerInfo: this.props.playerInfo
             // }
           }}><span className="start">Start</span></Link>
         </div>
