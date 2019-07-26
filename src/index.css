@@ -5,9 +5,10 @@
 body{
   margin: 0;
 }
-nav {
+/* home header */
+nav { 
   height: 6rem;
-  background-color: paleturquoise;
+  background-color: #00ECBA;
   z-index: 1;
   padding: 0 20px;
   display: flex;
@@ -22,8 +23,10 @@ nav {
   line-height: 6rem;
   text-decoration: none;
 }
+
+/* Home body */
 .game-section {
-  background-color: #FFA533;
+  background-color: #7231FF;
   height: 80vh;
   margin: 0;
   padding: 20px;
@@ -46,7 +49,7 @@ nav {
 
 .game-section-all div {
   display: flex;
-  flex-direction: column;
+  flex-direction: columcomplementary colors paletten;
   justify-content: center;
   margin: auto;
 }

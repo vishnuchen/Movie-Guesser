@@ -64,7 +64,7 @@
 }
 
 .answer-checkbox {
-  background-color: paleturquoise;
+  background-color: #FEB702;
   border: 1px solid black;
   border-radius: 5px;
   width: 200px;
@@ -124,7 +124,7 @@ input[type=radio]:checked + span {
 
 .filler {
   height: 20px;
-  background-color: blue;
+  background-color: #FE007A;
   border-radius: 50px;
 }
 
