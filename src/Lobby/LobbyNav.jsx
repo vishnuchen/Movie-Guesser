@@ -8,8 +8,8 @@ import Login from './Login.jsx'
 
 const socketClient = openSocket('http://localhost:3001');
 class LobbyNav extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.socket = socketClient;
     this.state = {
       loginShow: false,
@@ -54,13 +54,13 @@ class LobbyNav extends Component {
     return (
       <div>
         <nav className="navbar" role="navigation" aria-label="main navigation">
-            <a className="navbar-brand" href="/">{filmElement}MovieGuesser</a>
-            <div className="login">
-              <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
-              <button name="login" onClick={this.toggleLogin}>
-                Join
-              </button>
-            </div>
+          <a className="navbar-brand" href="/">{filmElement}MovieGuesser</a>
+          <div className="login">
+            <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
+            <button name="login" onClick={this.toggleLogin}>
+              Join
+            </button>
+          </div>
         </nav>
         <div className="lobby-main">
           <div className="game-info">

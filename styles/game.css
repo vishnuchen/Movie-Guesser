@@ -1,3 +1,5 @@
+/* Game State styles */
+
 .timer {
   display: flex;
   justify-content: space-between;
@@ -5,19 +7,142 @@
   padding: 20px;
 }
 
- .game-cat {
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.game-header .score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-header div h1, .game-header div h2, .game-header div h3 {
+  margin: 5px;
+}
+
+.game-cat {
   display: flex;
   height: 60vh;
   border: 1px solid black;
 }
 
- .game-cat-content {
+.game-cat-content {
   margin: auto;
 }
 
- .progress-bar {
+/* Quiz Area styles */
+
+.movie-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-img div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.movie-img img {
+  width: 200px;
+}
+
+#form1 {
+  display: flex;
+  flex-direction: column;
+}
+
+#form1 div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.answer-checkbox {
+  background-color: paleturquoise;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 200px;
+  position: relative;
+  height: 30px;
+  margin: 10px;
+}
+
+input[type=radio] {
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  width: 200px;
+  height: 30px;
+}
+
+input[type=radio]:checked + span {
+  background-color: orange;
+}
+
+.answer-content {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 30px;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+/* Progress bar styles */
+
+.progress-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7vh;
   padding: 20px;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: flex-start;
+  width: 300px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 0;
+}
+
+.filler {
+  height: 20px;
+  background-color: blue;
+  border-radius: 50px;
+}
+
+/* Results styles */
+
+.results-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 510px) {
+  .movie-img img {
+    width: 150px;
+  }
+
+  #form1 div {
+    flex-direction: column;
+  }
 }

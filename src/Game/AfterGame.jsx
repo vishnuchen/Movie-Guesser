@@ -8,12 +8,10 @@ class AfterGame extends Component {
   render() {
     return (
       <div>
-        {this.props.score}
-        <div className="game-cat">
-          <h1>Game Finished</h1>
-          <a href="/">
-              Return to Home Page
-          </a>
+        <div className="results-area">
+          <h1>Game Results</h1>
+          <h3>You scored: {this.props.score} points!</h3>
+          <a href="/">Want to play again?</a>
         </div>
       </div>
     );

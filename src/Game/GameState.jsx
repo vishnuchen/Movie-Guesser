@@ -24,13 +24,12 @@ class GameState extends Component {
     return(
       <div>
         <div className="game-header">
-          <div>
+          <div className="score">
             <h2>Score</h2>
             <h3>{this.props.score}</h3>
           </div>
-          <div>
-            <h2>Category</h2>
-            <h3>{gameCat}</h3>
+          <div className="progress-bar-container">
+            <GameProgressBar counter={this.props.counter} />
           </div>
           <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} counter={this.props.counter} />
         </div>
@@ -39,7 +38,6 @@ class GameState extends Component {
             <QuizArea userAnswer={this.props.userAnswer} mvq={this.state.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
-        <GameProgressBar counter={this.props.counter} />
       </div>
     );
   }
