@@ -31,7 +31,7 @@ class App extends Component {
     socket.on('trigger_questions', (questions) => {
       const questions_received = JSON.parse(questions)
       this.setState({
-        mvq: questions
+        mvq: questions_received
       }, () => {
         console.log(this.state.mvq)
       })

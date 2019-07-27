@@ -15,7 +15,7 @@ class GameNav extends Component {
       gameFinished: false,
       result: "",
       score: 0,
-      correctAnswer: "default",
+      correctAnswer: this.props.mvq.correctAnswer,
       userAnswer: "",
       counter: 0,
       image: movie_imgs,
@@ -44,6 +44,7 @@ class GameNav extends Component {
   }
 
   checkAnswer = () => {
+    console.log( this.state.userAnswer, "CheckQuestion", this.state.correctAnswer);
     if(this.state.userAnswer == this.state.correctAnswer) {
       let score = this.state.score;
       this.setState({
