@@ -5,7 +5,7 @@ class Countdown extends React.Component {
     super(props);
     this.state = {
       timerStart: 0,
-      timerTime: 5,
+      timerTime: 10,
     }
   }
 
@@ -30,7 +30,7 @@ class Countdown extends React.Component {
           this.props.checkAnswer();
           this.props.nextQuestion();
           this.setState({
-            timerTime: 5,
+            timerTime: 10,
           })
         }
       }

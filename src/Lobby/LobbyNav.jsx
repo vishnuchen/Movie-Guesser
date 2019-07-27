@@ -16,7 +16,7 @@ class LobbyNav extends Component {
       currentPlayer: {
         name:"",
         score: 0
-      },
+      }
     }
   }
 
