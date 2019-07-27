@@ -11,7 +11,8 @@ body{
 /* home header */
 nav { 
   height: 6rem;
-  background-color: #7231FF;
+  background-image: linear-gradient(90deg, #7231FF, #00ECBA);
+  background-color: #;
   z-index: 1;
   padding: 0 20px;
   display: flex;

@@ -1,6 +1,8 @@
 #container {
   width: 600px;
-  height: auto;
+  background-color: #AFAFAF;
+  height: 600px;
+  margin: 50px;
 }
 
 .row {
