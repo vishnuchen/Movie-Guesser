@@ -15,7 +15,7 @@ class GameNav extends Component {
       gameFinished: false,
       result: "",
       score: 0,
-      correctAnswer: "",
+      correctAnswer: "default",
       userAnswer: "",
       counter: 0,
       image: movie_imgs,

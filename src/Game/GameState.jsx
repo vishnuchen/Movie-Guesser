@@ -15,12 +15,6 @@ class GameState extends Component {
     this.props.socket.emit('trigger_questions', () => {
 
     })
-    // this.props.socket.on('trigger_questions', (questions) => {
-    //   const questions_received = JSON.parse(questions)
-    //   this.setState({
-    //     mvq: questions
-    //   })
-    // })
   }
 
   render() {
