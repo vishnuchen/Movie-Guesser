@@ -27,8 +27,7 @@ io.on('connection', function(socket){
   })
 
   socket.on('trigger_questions', () => {
-    const questions = makeQuestionTypeOne();
-    console.log(questions)
+    const questions = JSON.stringify(makeQuestionTypeOne());
     io.emit('trigger_questions', questions)
   })
 

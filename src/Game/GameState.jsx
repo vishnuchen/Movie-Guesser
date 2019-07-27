@@ -9,13 +9,6 @@ import Countdown from './Countdown.jsx';
 class GameState extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      // mvq:
-    }
-  }
-
-  componentDidMount() {
-
   }
 
   nextQuestion = () => {
@@ -23,6 +16,7 @@ class GameState extends Component {
 
     })
     this.props.socket.on('trigger_questions', (questions) => {
+      const questions_received = JSON.parse(questions)
       this.setState({
         mvq: questions
       })
