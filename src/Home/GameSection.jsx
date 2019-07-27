@@ -25,6 +25,11 @@ class GameSection extends Component {
             <img src="https://image.tmdb.org/t/p/original/87eP7ITTrOWvkA4EqCuoRdyjzLy.jpg" />
             <Link to="/lobby">Play {PlayButtonElement}</Link>
           </div>
+          <div>
+            <h2>Action Movies</h2>
+            <img src="https://image.tmdb.org/t/p/original/87eP7ITTrOWvkA4EqCuoRdyjzLy.jpg" />
+            <Link to="/lobby&action">Play {PlayButtonElement}</Link>
+          </div>
         </div>
       </div>
     )

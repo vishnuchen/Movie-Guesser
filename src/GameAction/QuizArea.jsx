@@ -22,7 +22,7 @@ class QuizArea extends Component {
   }
 
   render() {
-    let mq = this.props.mvq;
+    let mq = this.props.mvqa;
     console.log(mq)
     let pics = [];
     for (let pic of mq.moviePic) {
