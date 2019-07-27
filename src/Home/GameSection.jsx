@@ -17,13 +17,12 @@ class GameSection extends Component {
   render() {
     const PlayButtonElement = <FontAwesomeIcon icon={faVideo} />
     return (
-      <div className="game-section">
-        <h2>Care to test your movie knowledge?</h2>
         <div className="game-section-all">
           <div>
-            <h2>Popular Movies</h2>
-            <img src="https://image.tmdb.org/t/p/original/87eP7ITTrOWvkA4EqCuoRdyjzLy.jpg" />
+          <h2>Wanna play?</h2>
+            <h3>Popular Movies</h3>
             <Link to="/lobby">Play {PlayButtonElement}</Link>
+            <img src="/../../popular2.png" />
           </div>
           <div>
             <h2>Action Movies</h2>
@@ -31,7 +30,6 @@ class GameSection extends Component {
             <Link to="/lobby&action">Play {PlayButtonElement}</Link>
           </div>
         </div>
-      </div>
     )
   }
 }

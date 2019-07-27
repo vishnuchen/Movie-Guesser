@@ -16,9 +16,11 @@ import GameNavAction from "./GameAction/GameNav.jsx";
 import '../styles/home.css';
 import '../styles/game.css';
 import '../styles/lobby.css';
+import '../styles/scorecard.css';
 import openSocket from 'socket.io-client';
 
 const socket = openSocket('http://localhost:3001');
+
 
 class App extends Component {
   constructor() {

@@ -12,6 +12,7 @@
   justify-content: space-between;
   border: 1px solid black;
   padding: 10px;
+  background-color: white;
 }
 
 .game-header .score {
@@ -64,7 +65,7 @@
 }
 
 .answer-checkbox {
-  background-color: paleturquoise;
+  background-color: #FEB702;
   border: 1px solid black;
   border-radius: 5px;
   width: 200px;
@@ -124,18 +125,11 @@ input[type=radio]:checked + span {
 
 .filler {
   height: 20px;
-  background-color: blue;
+  background-color: #FE007A;
   border-radius: 50px;
 }
 
 /* Results styles */
-
-.results-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 @media only screen and (max-width: 510px) {
   .movie-img img {
