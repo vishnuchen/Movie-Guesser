@@ -25,7 +25,7 @@ class GameNav extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.socket)
+    console.log(this.props.mvq)
     this.props.socket.emit('clear_result')
     this.props.socket.on('clear_result', () => {
       this.setState({
