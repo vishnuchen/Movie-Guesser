@@ -14,6 +14,10 @@ class GameInfo extends Component{
     super(props);
   }
 
+  componentDidMount() {
+    console.log(this.props.socket)
+  }
+
   render() {
     // const gameCategory = "Comedy";
     const lobbyUrl = "localhost:3000/lobby";
@@ -28,7 +32,8 @@ class GameInfo extends Component{
           <Link to={{
             pathname: gameUrl,
             // state: {
-            //   playerInfo: this.props.playerInfo
+            //   test: 'test',
+            //   socket: this.props.socket
             // }
           }}><span className="start">Start</span></Link>
         </div>

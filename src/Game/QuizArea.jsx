@@ -23,6 +23,7 @@ class QuizArea extends Component {
 
   render() {
     const mvq = this.props.mvq;
+    console.log(mvq)
     const pics = [];
     for (let pic of mvq.moviePic) {
       pics.push("https://image.tmdb.org/t/p/original" + pic.file_path);

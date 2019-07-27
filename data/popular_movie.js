@@ -216,15 +216,6 @@ module.exports = [{
   "release_date": "2019-07-25"
 },
 {
-  "api_id": 553100,
-  "vote_average": 5.7,
-  "title": "Wild and Free",
-  "genre_ids": [
-    "Drama"
-  ],
-  "release_date": "2018-10-10"
-},
-{
   "api_id": 480414,
   "vote_average": 5.6,
   "title": "The Curse of La Llorona",
