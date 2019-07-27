@@ -39,6 +39,12 @@ io.on('connection', function(socket){
     io.emit('start_game');
   })
 
+  socket.on('player_scores', (scores) => {
+    const parsed_scores = JSON.parse(scores);
+    console.log(parsed_scores)
+    io.emit('player_scores', scores);
+  })
+
 });
 
 let newPlayerList = [];

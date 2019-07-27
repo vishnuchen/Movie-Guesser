@@ -23,7 +23,8 @@ class App extends Component {
     super()
     this.state={
       mvq: {},
-      playerList: []
+      playerList: [],
+      currentPlayer: {}
     }
   }
 
@@ -43,6 +44,14 @@ class App extends Component {
     })
   }
 
+  setCurrentPlayer = (player) => {
+    this.setState({
+      currentPlayer: player
+    }, () => {
+      console.log(this.state.currentPlayer)
+    })
+  }
+
 
   render() {
     return (
@@ -54,11 +63,11 @@ class App extends Component {
           />
           <Route
             path="/lobby"
-            render={(props) => <LobbyNav {...props} socket={socket} updateList={this.updateList} />}
+            render={(props) => <LobbyNav {...props} socket={socket} updateList={this.updateList} currentPlayer={this.setCurrentPlayer} />}
           />
           <Route
             path="/game"
-            render={(props) => <GameNav {...props} socket={socket} mvq={this.state.mvq} playerList={this.state.playerList} />}
+            render={(props) => <GameNav {...props} socket={socket} mvq={this.state.mvq} playerList={this.state.playerList} currentPlayer={this.state.currentPlayer} />}
           />
         </div>
       </Router>

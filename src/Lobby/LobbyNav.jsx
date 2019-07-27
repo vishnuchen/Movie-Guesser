@@ -10,8 +10,7 @@ class LobbyNav extends Component {
     super(props);
     this.state = {
       loginShow: false,
-      currentPlayer: [],
-      playerList: []
+      currentPlayer: []
     }
   }
 
@@ -37,13 +36,10 @@ class LobbyNav extends Component {
   }
 
   setUsername = (username) => {
-    let newPlayer = { [username]: 0 }
-    this.setState({
-      currentPlayer: this.state.currentPlayer.concat(newPlayer)
-    }, () => {
-      this.toggleLogin();
-      this.props.socket.emit('player_entrance', newPlayer)
-    })
+    // let newPlayer = { [username]: 0 }
+    this.props.currentPlayer(username)
+    this.toggleLogin();
+    this.props.socket.emit('player_entrance', username)
   }
 
   render() {
@@ -64,7 +60,7 @@ class LobbyNav extends Component {
             <GameInfo socket={this.props.socket} playerList={this.state.playerList} />
           </div>
           <div className="player-list">
-            <PlayerList list={this.state.playerList} />
+            {/* <PlayerList list={this.state.playerList} /> */}
           </div>
         </div>
       </div>
