@@ -30,6 +30,10 @@ io.on('connection', function(socket){
     const questions = JSON.stringify(makeQuestionTypeOne());
     io.emit('trigger_questions', questions)
   })
+  socket.on('trigger_action_questions', () => {
+    const questions = JSON.stringify(makeQuestionTypeAction());
+    io.emit('trigger_action_questions', questions)
+  })
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
@@ -53,6 +57,20 @@ chooseMovie = () => {
   return movie
 }
 
+chooseActionMovie = () => {
+  let actionMovie = [];
+  for (let movie of popular_movie) {
+    if (movie.genre_ids.indexOf("Action") !== -1) {
+      actionMovie.push(movie);
+    }
+  }
+  let movieInDb = actionMovie.length;
+  let randomMovie = Math.floor(Math.random() * movieInDb);
+  let movie = actionMovie[randomMovie];
+
+  return movie
+}
+
 shuffle = (array) => {
   return array.sort(() => Math.random() - 0.5);
 }
@@ -62,6 +80,48 @@ makeQuestionTypeOne =  () => {
   io.emit('clear_result')
 
   let movie = chooseMovie();
+  // let shuffledMoviePic = this.shuffle(this.state.image[movieId]);
+  let shuffledMoviePic;
+  for (let img of movie_imgs) {
+    if (img.movie_api_id === movie.api_id) {
+      shuffledMoviePic = shuffle(img.imgs);
+    }
+  }
+  let moviePic = [];
+  if (shuffledMoviePic.length >= 4){
+    for (let i = 0; i < 4; i++) {
+      moviePic.push(shuffledMoviePic[i]);
+    }
+  } else {
+    for (let i = 0; i < shuffledMoviePic.length; i++) {
+      moviePic.push(shuffledMoviePic[i]);
+    }
+  }
+  let otherMovieArray = [];
+  for (let mv of popular_movie) {
+    if (mv.title != movie.title) {
+      otherMovieArray.push(mv.title);
+    }
+  }
+  let shuffledOtherMovieArray = shuffle(otherMovieArray)
+  let questionChoice = [movie.title, shuffledOtherMovieArray[0], shuffledOtherMovieArray[1], shuffledOtherMovieArray[2]];
+  let shuffledQuestionChoice = shuffle(questionChoice);
+
+  io.emit('broadcast_title', movie.title)
+
+  // emit event to send this obj back to client
+  return {
+    "correctAnswer": movie.title,
+    "moviePic": moviePic,
+    "questionChoice": shuffledQuestionChoice
+  }
+}
+
+makeQuestionTypeAction =  () => {
+  // emit event to set result to empty
+  io.emit('clear_result')
+
+  let movie = chooseActionMovie();
   // let shuffledMoviePic = this.shuffle(this.state.image[movieId]);
   let shuffledMoviePic;
   for (let img of movie_imgs) {

@@ -11,6 +11,8 @@ import {
 import Home from "./Home/Home.jsx"
 import LobbyNav from "./Lobby/LobbyNav.jsx";
 import GameNav from "./Game/GameNav.jsx";
+import LobbyNavAction from "./LobbyAction/LobbyNav.jsx";
+import GameNavAction from "./GameAction/GameNav.jsx";
 import '../styles/home.css';
 import '../styles/game.css';
 import '../styles/lobby.css';
@@ -22,7 +24,8 @@ class App extends Component {
   constructor() {
     super()
     this.state={
-      mvq: {}
+      mvq: {},
+      mvqa: {}
     }
   }
 
@@ -34,6 +37,16 @@ class App extends Component {
         mvq: questions_received
       }, () => {
         console.log(this.state.mvq)
+      })
+    })
+    
+    socket.emit('trigger_action_questions')
+    socket.on('trigger_action_questions', (questions) => {
+      const questions_received = JSON.parse(questions)
+      this.setState({
+        mvqa: questions_received
+      }, () => {
+        console.log(this.state.mvqa)
       })
     })
   }
@@ -50,8 +63,16 @@ class App extends Component {
             render={(props) => <LobbyNav {...props} socket={socket} />}
           />
           <Route
+            path="/lobby&action"
+            render={(props) => <LobbyNavAction {...props} socket={socket} />}
+          />
+          <Route
             path="/game"
             render={(props) => <GameNav {...props} socket={socket} mvq={this.state.mvq} />}
+          />
+          <Route
+            path="/game&action"
+            render={(props) => <GameNavAction {...props} socket={socket} mvqa={this.state.mvqa} />}
           />
         </div>
       </Router>
