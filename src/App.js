@@ -21,12 +21,15 @@ const socket = openSocket('http://localhost:3001');
 class App extends Component {
   constructor() {
     super()
-    this.state={}
+    this.state={
+      mvq: {}
+    }
   }
 
   componentDidMount() {
     socket.emit('trigger_questions')
     socket.on('trigger_questions', (questions) => {
+      const questions_received = JSON.parse(questions)
       this.setState({
         mvq: questions
       }, () => {
