@@ -16,18 +16,20 @@ io.on('connection', function(socket){
     io.emit('test', msg);
   });
 
-  socket.on('player_entrance', (users) => {
-    gameObject.push(users);
-    console.log(gameObject)
-    io.emit('name_display', gameObject)
+  socket.on('player_entrance', (newPlayer) => {
+    newPlayerList.push(newPlayer);
+    console.log(newPlayerList)
+    io.emit('name_display', newPlayerList)
   })
 
-  socket.on('clear_result', (msg) => {
-    io.emit('clear_result', msg)
+  socket.on('clear_result', () => {
+    io.emit('clear_result')
   })
 
-  socket.on('trigger_function', () => {
-    console.log('triggered')
+  socket.on('trigger_questions', () => {
+    const questions = makeQuestionTypeOne();
+    console.log(questions)
+    io.emit('trigger_questions', questions)
   })
 
   socket.on('disconnect', function(){
@@ -36,7 +38,7 @@ io.on('connection', function(socket){
 
 });
 
-let gameObject = [];
+let newPlayerList = [];
 
 // Server functions
 
@@ -52,16 +54,16 @@ shuffle = (array) => {
   return array.sort(() => Math.random() - 0.5);
 }
 
-makeQestionTypeOne =  () => {
+makeQuestionTypeOne =  () => {
   // emit event to set result to empty
   io.emit('clear_result')
 
-  let movie = this.chooseMovie();
+  let movie = chooseMovie();
   // let shuffledMoviePic = this.shuffle(this.state.image[movieId]);
   let shuffledMoviePic;
   for (let img of movie_imgs) {
     if (img.movie_api_id === movie.api_id) {
-      shuffledMoviePic = this.shuffle(img.imgs);
+      shuffledMoviePic = shuffle(img.imgs);
     }
   }
   let moviePic = [];
@@ -75,16 +77,16 @@ makeQestionTypeOne =  () => {
     }
   }
   let otherMovieArray = [];
-  for (let mv of this.state.movies) {
+  for (let mv of popular_movie) {
     if (mv.title != movie.title) {
       otherMovieArray.push(mv.title);
     }
   }
-  let shuffledOtherMovieArray = this.shuffle(otherMovieArray)
+  let shuffledOtherMovieArray = shuffle(otherMovieArray)
   let questionChoice = [movie.title, shuffledOtherMovieArray[0], shuffledOtherMovieArray[1], shuffledOtherMovieArray[2]];
-  let shuffledQuestionChoice = this.shuffle(questionChoice);
+  let shuffledQuestionChoice = shuffle(questionChoice);
 
-  this.setState({correctAnswer: movie.title})
+  io.emit('broadcast_title', movie.title)
 
   // emit event to send this obj back to client
   return {

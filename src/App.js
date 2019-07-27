@@ -19,6 +19,21 @@ import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:3001');
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state={}
+  }
+
+  componentDidMount() {
+    socket.emit('trigger_questions')
+    socket.on('trigger_questions', (questions) => {
+      this.setState({
+        mvq: questions
+      }, () => {
+        console.log(this.state.mvq)
+      })
+    })
+  }
   render() {
     return (
       <Router>
@@ -33,7 +48,7 @@ class App extends Component {
           />
           <Route
             path="/game"
-            render={(props) => <GameNav {...props} socket={socket} />}
+            render={(props) => <GameNav {...props} socket={socket} mvq={this.state.mvq} />}
           />
         </div>
       </Router>

@@ -10,15 +10,23 @@ class GameState extends Component {
   constructor(props) {
     super(props);
     this.state={
-      // mvq: this.props.makeQuestionTypeOne()
+      // mvq:
     }
   }
 
-  nextQuestion = () => {
-    // this.socket.emit('trigger_function', () => {
+  componentDidMount() {
 
-    // })
-    // this.setState({mvq: this.props.makeQuestionTypeOne()});
+  }
+
+  nextQuestion = () => {
+    this.props.socket.emit('trigger_questions', () => {
+
+    })
+    this.props.socket.on('trigger_questions', (questions) => {
+      this.setState({
+        mvq: questions
+      })
+    })
   }
 
   render() {
@@ -39,7 +47,7 @@ class GameState extends Component {
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            {/* <QuizArea userAnswer={this.props.userAnswer} mvq={this.state.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} /> */}
+            <QuizArea userAnswer={this.props.userAnswer} mvq={this.props.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
       </div>

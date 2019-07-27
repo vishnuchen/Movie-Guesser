@@ -10,10 +10,8 @@ class LobbyNav extends Component {
     super(props);
     this.state = {
       loginShow: false,
-      currentPlayer: {
-        name:"",
-        score: 0
-      },
+      currentPlayer: [],
+      playerList: []
     }
   }
 
@@ -22,10 +20,10 @@ class LobbyNav extends Component {
     this.props.socket.on('test', function(msg) {
       console.log('connected to server');
     })
-    this.props.socket.on('name_display', (gameObject) => {
-      console.log('this is the gameObject', gameObject)
+    this.props.socket.on('name_display', (playerList) => {
+      console.log('this is the current list of players', playerList)
       this.setState({
-        game: gameObject
+        playerList: playerList
       })
     })
   }
@@ -37,13 +35,13 @@ class LobbyNav extends Component {
   }
 
   setUsername = (username) => {
-    let new_player = { [username]: 0 }
-    // this.setState({
-    //   game: this.state.game.concat(new_player)
-    // }, () => {
+    let newPlayer = { [username]: 0 }
+    this.setState({
+      currentPlayer: this.state.currentPlayer.concat(newPlayer)
+    }, () => {
       this.toggleLogin();
-      this.props.socket.emit('player_entrance', new_player)
-    // })
+      this.props.socket.emit('player_entrance', newPlayer)
+    })
   }
 
   render() {
@@ -61,10 +59,10 @@ class LobbyNav extends Component {
         </nav>
         <div className="lobby-main">
           <div className="game-info">
-            <GameInfo socket={this.socket} />
+            <GameInfo socket={this.props.socket} />
           </div>
           <div className="player-list">
-           { /* <PlayerList list={this.state.game} /> */}
+            <PlayerList list={this.state.playerList} />
           </div>
         </div>
       </div>
