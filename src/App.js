@@ -22,7 +22,8 @@ class App extends Component {
   constructor() {
     super()
     this.state={
-      mvq: {}
+      mvq: {},
+      playerList: []
     }
   }
 
@@ -31,12 +32,18 @@ class App extends Component {
     socket.on('trigger_questions', (questions) => {
       const questions_received = JSON.parse(questions)
       this.setState({
-        mvq: questions
-      }, () => {
-        console.log(this.state.mvq)
+        mvq: questions_received
       })
     })
   }
+
+  updateList = (players) => {
+    this.setState({
+      playerList: players
+    })
+  }
+
+
   render() {
     return (
       <Router>
@@ -47,11 +54,11 @@ class App extends Component {
           />
           <Route
             path="/lobby"
-            render={(props) => <LobbyNav {...props} socket={socket} />}
+            render={(props) => <LobbyNav {...props} socket={socket} updateList={this.updateList} />}
           />
           <Route
             path="/game"
-            render={(props) => <GameNav {...props} socket={socket} mvq={this.state.mvq} />}
+            render={(props) => <GameNav {...props} socket={socket} mvq={this.state.mvq} playerList={this.state.playerList} />}
           />
         </div>
       </Router>

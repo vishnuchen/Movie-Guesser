@@ -22,6 +22,8 @@ class LobbyNav extends Component {
     })
     this.props.socket.on('name_display', (playerList) => {
       console.log('this is the current list of players', playerList)
+      this.props.updateList(playerList);
+
       this.setState({
         playerList: playerList
       })
@@ -59,7 +61,7 @@ class LobbyNav extends Component {
         </nav>
         <div className="lobby-main">
           <div className="game-info">
-            <GameInfo socket={this.props.socket} />
+            <GameInfo socket={this.props.socket} playerList={this.state.playerList} />
           </div>
           <div className="player-list">
             <PlayerList list={this.state.playerList} />

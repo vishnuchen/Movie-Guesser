@@ -25,7 +25,7 @@ class GameNav extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.mvq)
+    console.log(this.props.playerList)
     this.props.socket.emit('clear_result')
     this.props.socket.on('clear_result', () => {
       this.setState({
@@ -65,6 +65,7 @@ class GameNav extends Component {
 
   gameFinish = () => {
     if ((this.state.counter / 60) >=5 ) {
+      this.props.socket.emit('player_scores', )
       return <AfterGame score={this.state.score} socket={this.props.socket} />
     } else {
       return <GameState userAnswer={this.state.userAnswer} score={this.state.score} mvq={this.props.mvq} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} socket={this.props.socket} />
