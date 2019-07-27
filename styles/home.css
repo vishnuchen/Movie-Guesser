@@ -29,11 +29,15 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid black;
   margin: 50px;
   border-radius: 15px;
   padding: 15px;
+  align-items: center;
+  align-self: center;
 }
+
+
+
 
 .game-section-all div {
   display: flex;
@@ -43,7 +47,8 @@ nav {
 }
 
 .game-section-all h3 {
-  margin: 20px;
+  font-family: 'Montserrat';
+  font-size: 25px;
   align-self: center;
 }
 .game-section-all img {

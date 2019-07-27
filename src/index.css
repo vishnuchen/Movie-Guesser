@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 body{
   margin: 0;
 }

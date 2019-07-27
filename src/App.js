@@ -14,6 +14,7 @@ import GameNav from "./Game/GameNav.jsx";
 import '../styles/home.css';
 import '../styles/game.css';
 import '../styles/lobby.css';
+import '../styles/scorecard.css';
 
 class App extends Component {
   render() {

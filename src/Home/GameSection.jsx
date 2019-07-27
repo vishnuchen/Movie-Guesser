@@ -22,7 +22,7 @@ class GameSection extends Component {
            <h2>Wanna play?</h2>
           </div>
           <div>
-            <h3>Popular Movies</h3>
+            <h3 className="game-section-all">Popular Movies</h3>
             <img src="https://image.tmdb.org/t/p/original/87eP7ITTrOWvkA4EqCuoRdyjzLy.jpg" />
             <Link to="/lobby">Play {PlayButtonElement}</Link>
           </div>
