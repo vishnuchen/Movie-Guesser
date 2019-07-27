@@ -1,5 +1,6 @@
 .lobby-main {
   background-image: url(/../movie-back.jpg);
+  background-image: 100%;
   background-position: bottom-right;
   /* opacity: 0.7; */
   background-size:20%;

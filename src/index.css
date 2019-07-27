@@ -8,7 +8,7 @@ body{
 /* home header */
 nav { 
   height: 6rem;
-  background-color: #00ECBA;
+  background-color: #7231FF;
   z-index: 1;
   padding: 0 20px;
   display: flex;
@@ -26,13 +26,13 @@ nav {
 
 /* Home body */
 .game-section {
-  background-color: #7231FF;
+  background-color:white;
   height: 80vh;
   margin: 0;
   padding: 20px;
 }
 
-.game-section h2 {
+.wannaplay h2 {
   font-family: 'Butterfly Kids';
   font-size: 3rem;
   text-align: center;
@@ -42,9 +42,10 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid black;
   border-radius: 15px;
   padding: 15px;
+  background: #FEB702;
+  width: 50%;
 }
 
 .game-section-all div {
@@ -55,12 +56,12 @@ nav {
 }
 
 .game-section-all h2 {
-  margin: auto;
-  font-family: 'Montserrat';
-  font-size: 2rem;
+  font-size: 3rem;
+  margin: 0%;
 }
 .game-section-all img {
-  width: 200px;
+  width: 50%;
+  border-radius: 15px;;
   margin: 20px;
 }
 
