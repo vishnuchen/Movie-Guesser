@@ -5,8 +5,8 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
@@ -19,7 +19,7 @@ class Home extends Component {
               {filmElement}MovieGuesser
             </a>
         </nav>
-        <GameSection />
+        <GameSection socket={this.props.socket} />
       </div>
       );
     }

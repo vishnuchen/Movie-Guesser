@@ -3,14 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import GameInfo from './GameInfo.jsx';
 import PlayerList from './PlayerList.jsx';
-import openSocket from 'socket.io-client';
 import Login from './Login.jsx'
 
-const socketClient = openSocket('http://localhost:3001');
 class LobbyNav extends Component {
   constructor(props) {
     super(props);
-    this.socket = socketClient;
     this.state = {
       loginShow: false,
       currentPlayer: {
@@ -21,11 +18,11 @@ class LobbyNav extends Component {
   }
 
   componentDidMount() {
-    this.socket.emit('test');
-    this.socket.on('test', function(msg) {
+    this.props.socket.emit('test');
+    this.props.socket.on('test', function(msg) {
       console.log('connected to server');
     })
-    this.socket.on('name_display', (gameObject) => {
+    this.props.socket.on('name_display', (gameObject) => {
       console.log('this is the gameObject', gameObject)
       this.setState({
         game: gameObject
@@ -45,7 +42,7 @@ class LobbyNav extends Component {
     //   game: this.state.game.concat(new_player)
     // }, () => {
       this.toggleLogin();
-      this.socket.emit('player_entrance', new_player)
+      this.props.socket.emit('player_entrance', new_player)
     // })
   }
 
@@ -64,10 +61,10 @@ class LobbyNav extends Component {
         </nav>
         <div className="lobby-main">
           <div className="game-info">
-            <GameInfo />
+            <GameInfo socket={this.socket} />
           </div>
           <div className="player-list">
-            <PlayerList list={this.state.game} />
+           { /* <PlayerList list={this.state.game} /> */}
           </div>
         </div>
       </div>

@@ -24,54 +24,14 @@ class GameNav extends Component {
     };
   }
 
-  chooseMovie = () => {
-    let movieInDb = this.state.movies.length;
-    let randomMovie = Math.floor(Math.random() * movieInDb);
-    let movie = this.state.movies[randomMovie];
-
-    return movie
-  }
-
-  shuffle = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-  }
-
-  makeQuestionTypeOne =  () => {
-    this.setState({result: ""});
-    let movie = this.chooseMovie();
-    // let shuffledMoviePic = this.shuffle(this.state.image[movieId]);
-    let shuffledMoviePic;
-    for (let img of movie_imgs) {
-      if (img.movie_api_id === movie.api_id) {
-        shuffledMoviePic = this.shuffle(img.imgs);
-      }
-    }
-    let moviePic = [];
-    if (shuffledMoviePic.length >= 4){
-      for (let i = 0; i < 4; i++) {
-        moviePic.push(shuffledMoviePic[i]);
-      }
-    } else {
-      for (let i = 0; i < shuffledMoviePic.length; i++) {
-        moviePic.push(shuffledMoviePic[i]);
-      }
-    }
-    let otherMovieArray = [];
-    for (let mv of this.state.movies) {
-      if (mv.title != movie.title) {
-        otherMovieArray.push(mv.title);
-      }
-    }
-    let shuffledOtherMovieArray = this.shuffle(otherMovieArray)
-    let questionChoice = [movie.title, shuffledOtherMovieArray[0], shuffledOtherMovieArray[1], shuffledOtherMovieArray[2]];
-    let shuffledQuestionChoice = this.shuffle(questionChoice);
-
-    this.setState({correctAnswer: movie.title})
-
-    return {
-      "moviePic": moviePic,
-      "questionChoice": shuffledQuestionChoice
-    }
+  componentDidMount() {
+    console.log(this.props.socket)
+    this.props.socket.emit('clear_result')
+    this.props.socket.on('clear_result', (msg) => {
+      this.setState({
+        result: ""
+      })
+    })
   }
 
   userChoice = (choice) => {

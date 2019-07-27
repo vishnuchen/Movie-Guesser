@@ -14,15 +14,27 @@ import GameNav from "./Game/GameNav.jsx";
 import '../styles/home.css';
 import '../styles/game.css';
 import '../styles/lobby.css';
+import openSocket from 'socket.io-client';
+
+const socket = openSocket('http://localhost:3001');
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Home} />
-          <Route path="/lobby" component={LobbyNav} />
-          <Route path="/game" component={GameNav} />
+          <Route
+            exact path="/"
+            render={(props) => <Home {...props} socket={socket} />}
+          />
+          <Route
+            path="/lobby"
+            render={(props) => <LobbyNav {...props} socket={socket} />}
+          />
+          <Route
+            path="/game"
+            render={(props) => <GameNav {...props} socket={socket} />}
+          />
         </div>
       </Router>
     );
