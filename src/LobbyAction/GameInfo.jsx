@@ -32,11 +32,11 @@ class GameInfo extends Component{
   }
 
   render() {
-    const lobbyUrl = "localhost:3000/lobby";
+    const lobbyUrl = "localhost:3000/lobby&action";
     const gameUrl = "/game/dksdjfskd";
 
     if (this.state.redirect) {
-      return <Redirect push to="/game" />
+      return <Redirect push to="/game&action" />
     }
 
     return (

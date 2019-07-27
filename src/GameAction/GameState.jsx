@@ -12,7 +12,7 @@ class GameState extends Component {
   }
 
   nextQuestion = () => {
-    this.props.socket.emit('trigger_questions', () => {
+    this.props.socket.emit('trigger_action_questions', () => {
 
     })
   }
@@ -35,7 +35,7 @@ class GameState extends Component {
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea userAnswer={this.props.userAnswer} mvq={this.props.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
+            <QuizArea userAnswer={this.props.userAnswer} mvqa={this.props.mvqa} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
       </div>

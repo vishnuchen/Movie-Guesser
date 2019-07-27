@@ -2821,20 +2821,6 @@ module.exports = [
     ]
   },
   {
-    "movie_api_id": 553100,
-    "imgs": [
-      {
-        "aspect_ratio": 1.777777777777778,
-        "file_path": "/9v4nPAyVvtGONV5NtPkDHA9bczS.jpg",
-        "height": 720,
-        "iso_639_1": null,
-        "vote_average": 0,
-        "vote_count": 0,
-        "width": 1280
-      }
-    ]
-  },
-  {
     "movie_api_id": 480414,
     "imgs": [
       {
