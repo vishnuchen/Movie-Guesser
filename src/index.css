@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bahianita&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Butterfly+Kids&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 body{
   margin: 0;
@@ -21,9 +23,16 @@ nav {
   text-decoration: none;
 }
 .game-section {
+  background-color: #FFA533;
   height: 80vh;
-  margin: 20px;
+  margin: 0;
   padding: 20px;
+}
+
+.game-section h2 {
+  font-family: 'Butterfly Kids';
+  font-size: 3rem;
+  text-align: center;
 }
 
 .game-section-all {
@@ -44,6 +53,8 @@ nav {
 
 .game-section-all h2 {
   margin: auto;
+  font-family: 'Montserrat';
+  font-size: 2rem;
 }
 .game-section-all img {
   width: 200px;
@@ -52,207 +63,8 @@ nav {
 
 .game-section-all a {
   margin: auto;
-  background-color: aquamarine;
   border: 1px solid;
   border-radius: 5px;
   padding: 10px;
   text-decoration: none;
-}
-
-/* Game State styles */
-
-.game-header {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-  padding: 10px;
-}
-
-.game-header div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.game-header div h1, .game-header div h2, .game-header div h3 {
-  margin: 5px;
-}
-
-.game-cat {
-  display: flex;
-  height: 60vh;
-  border: 1px solid black;
-}
-
-.game-cat-content {
-  margin: auto;
-}
-
-/* Quiz Area styles */
-
-.movie-img {
-  display: flex;
-  flex-direction: column;
-}
-
-.movie-img div {
-  display: flex;
-  flex-direction: row;
-}
-
-.movie-img img {
-  width: 200px;
-}
-
-#form1 {
-  display: flex;
-  flex-direction: column;
-}
-
-#form1 div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.answer-checkbox {
-  background-color: paleturquoise;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 200px;
-  position: relative;
-  height: 30px;
-  margin: 10px;
-}
-
-input[type=radio] {
-  border: 0;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  opacity: 0;
-  width: 200px;
-  height: 30px;
-}
-
-input[type=radio]:checked + span {
-  background-color: orange;
-}
-
-.answer-content {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
-}
-
-/* Lobby Styles */
-
-.lobby-main {
-  display: grid;
-  grid-template-columns: 70% 30%;
-}
-
-.game-info, .player-list {
-  border: 1px solid black;
-  height: 82vh;
-  padding: 20px;
-}
-
-.game-info {
-  display: flex;
-  justify-content: center;
-}
-
-.game-info > * {
-  text-align: center;
-}
-
-.player-list {
-  display: flex;
-  justify-content: center;
-}
-
-.player-list > * {
-  text-align: center;
-}
-
-.player-list-list {
-  padding: 0;
-}
-
-.player-list-list li {
-  list-style: none;
-}
-
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login {
-  margin: auto 0;
-  display: flex;
-  flex-direction: row;
-}
-
-input[name="username"] {
-  height: 27px;
-  margin-right: 10px;
-  padding: 0;
-}
-
-button[name="login"] {
-  height: 30px;
-  width: 50px;
-  margin-left: 10px;
-}
-
-.start {
-  display: inline-block;
-  height: 20px;
-  width: 50px;
-  border: 2px solid blue;
-  border-radius: 5px;
-}
-
-@media screen and (max-device-width) {
-
-}
-
-/* Progress bar styles */
-
-.progress-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 7vh;
-  border: 1px solid black;
-  padding: 20px;
-}
-
-.progress-bar {
-  display: flex;
-  justify-content: flex-start;
-  width: 300px;
-  height: 20px;
-  border: 1px solid black;
-  border-radius: 50px;
-  padding: 0;
-}
-
-.filler {
-  height: 20px;
-  background-color: blue;
-  border-radius: 50px;
 }

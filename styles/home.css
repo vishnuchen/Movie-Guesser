@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bahianita&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Butterfly+Kids&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 body{
   margin: 0;
@@ -19,7 +21,7 @@ nav {
 }
 .game-section {
   height: 80vh;
-  margin: 20px;
+  margin: 0;
   padding: 20px;
 }
 
@@ -49,9 +51,14 @@ nav {
 
 .game-section-all a {
   margin: auto;
-  background-color: aquamarine;
+  font-family: 'Montserrat';
   border: 1px solid;
   border-radius: 5px;
   padding: 10px;
   text-decoration: none;
+}
+
+.game-section a:hover {
+  border: 1px solid white;
+  color: white;
 }

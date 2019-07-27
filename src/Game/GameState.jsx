@@ -9,14 +9,20 @@ import Countdown from './Countdown.jsx';
 class GameState extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      mvq: this.props.makeQuestionTypeOne()
-    }
   }
 
   nextQuestion = () => {
-    this.setState({mvq: this.props.makeQuestionTypeOne()});
+    this.props.socket.emit('trigger_questions', () => {
+
+    })
+    this.props.socket.on('trigger_questions', (questions) => {
+      const questions_received = JSON.parse(questions)
+      this.setState({
+        mvq: questions
+      })
+    })
   }
+
   render() {
     const gameCat = "Comedy";
     const HourglassElement = <FontAwesomeIcon icon={faHourglassHalf} className="fa-spin" />
@@ -24,22 +30,20 @@ class GameState extends Component {
     return(
       <div>
         <div className="game-header">
-          <div>
+          <div className="score">
             <h2>Score</h2>
             <h3>{this.props.score}</h3>
           </div>
-          <div>
-            <h2>Category</h2>
-            <h3>{gameCat}</h3>
+          <div className="progress-bar-container">
+            <GameProgressBar counter={this.props.counter} />
           </div>
           <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} counter={this.props.counter} />
         </div>
         <div className="game-cat">
           <div className="game-cat-content">
-            <QuizArea userAnswer={this.props.userAnswer} mvq={this.state.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
+            <QuizArea userAnswer={this.props.userAnswer} mvq={this.props.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
           </div>
         </div>
-        <GameProgressBar counter={this.props.counter} />
       </div>
     );
   }

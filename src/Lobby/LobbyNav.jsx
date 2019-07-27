@@ -3,32 +3,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import GameInfo from './GameInfo.jsx';
 import PlayerList from './PlayerList.jsx';
-import openSocket from 'socket.io-client';
 import Login from './Login.jsx'
 
-const socketClient = openSocket('http://localhost:3001');
 class LobbyNav extends Component {
-  constructor() {
-    super();
-    this.socket = socketClient;
+  constructor(props) {
+    super(props);
     this.state = {
       loginShow: false,
-      currentPlayer: {
-        name:"",
-        score: 0
-      }
+      currentPlayer: [],
+      playerList: []
     }
   }
 
   componentDidMount() {
-    this.socket.emit('test');
-    this.socket.on('test', function(msg) {
+    this.props.socket.emit('test');
+    this.props.socket.on('test', function(msg) {
       console.log('connected to server');
     })
-    this.socket.on('name_display', (gameObject) => {
-      console.log('this is the gameObject', gameObject)
+    this.props.socket.on('name_display', (playerList) => {
+      console.log('this is the current list of players', playerList)
       this.setState({
-        game: gameObject
+        playerList: playerList
       })
     })
   }
@@ -40,13 +35,13 @@ class LobbyNav extends Component {
   }
 
   setUsername = (username) => {
-    let new_player = { [username]: 0 }
-    // this.setState({
-    //   game: this.state.game.concat(new_player)
-    // }, () => {
+    let newPlayer = { [username]: 0 }
+    this.setState({
+      currentPlayer: this.state.currentPlayer.concat(newPlayer)
+    }, () => {
       this.toggleLogin();
-      this.socket.emit('player_entrance', new_player)
-    // })
+      this.props.socket.emit('player_entrance', newPlayer)
+    })
   }
 
   render() {
@@ -54,20 +49,20 @@ class LobbyNav extends Component {
     return (
       <div>
         <nav className="navbar" role="navigation" aria-label="main navigation">
-            <a className="navbar-brand" href="/">{filmElement}MovieGuesser</a>
-            <div className="login">
-              <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
-              <button name="login" onClick={this.toggleLogin}>
-                Join
-              </button>
-            </div>
+          <a className="navbar-brand" href="/">{filmElement}MovieGuesser</a>
+          <div className="login">
+            <Login show={this.state.loginShow} onClose={this.toggleLogin} setUsername={this.setUsername} />
+            <button name="login" onClick={this.toggleLogin}>
+              Join
+            </button>
+          </div>
         </nav>
         <div className="lobby-main">
           <div className="game-info">
-            <GameInfo />
+            <GameInfo socket={this.props.socket} />
           </div>
           <div className="player-list">
-            <PlayerList list={this.state.game} />
+            <PlayerList list={this.state.playerList} />
           </div>
         </div>
       </div>
