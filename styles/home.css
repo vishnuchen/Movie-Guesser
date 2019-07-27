@@ -2,14 +2,23 @@
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body{
   background-image: url(/../movie-back.jpg);
   margin: 0;
 }
 nav {
   height: 6rem;
-  background-color: #00ECBA;
+  background-image: linear-gradient(90deg, #7231FF, #00ECBA);
+  background-color: #;
   z-index: 1;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .navbar-brand {
@@ -25,6 +34,13 @@ nav {
   padding: 20px;
 }
 
+.wannaplay h2 {
+  font-family: 'Butterfly Kids';
+  font-size: 3rem;
+  text-align: center;
+}
+
+
 .game-section-all {
   display: flex;
   flex-direction: column;
@@ -32,6 +48,8 @@ nav {
   margin: 50px;
   border-radius: 15px;
   padding: 15px;
+  background: #FACA81;
+  width: 50%;
   align-items: center;
   align-self: center;
 }
@@ -46,14 +64,20 @@ nav {
   margin: auto;
 }
 
+.game-section-all h2 {
+  font-size: 3rem;
+  margin: 0%;
+}
+
 .game-section-all h3 {
   font-family: 'Montserrat';
   font-size: 25px;
   align-self: center;
 }
 .game-section-all img {
-  width: 70%;
+  width: 50%;
   align-self: center;
+  border-radius: 15px;;
   margin: 20px;
 }
 
