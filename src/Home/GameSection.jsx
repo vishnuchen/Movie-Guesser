@@ -18,13 +18,11 @@ class GameSection extends Component {
     const PlayButtonElement = <FontAwesomeIcon icon={faVideo} />
     return (
         <div className="game-section-all">
-          <div className="wannaplay">
-           <h2>Wanna play?</h2>
-          </div>
           <div>
-            <h3 className="game-section-all">Popular Movies</h3>
-            <img src="/../../popular2.png" />
+          <h2>Wanna play?</h2>
+            <h3>Popular Movies</h3>
             <Link to="/lobby">Play {PlayButtonElement}</Link>
+            <img src="/../../popular2.png" />
           </div>
         </div>
     )

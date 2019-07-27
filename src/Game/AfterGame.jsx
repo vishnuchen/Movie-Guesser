@@ -7,7 +7,7 @@ class AfterGame extends Component {
 
   render() {
     return (
-      <div id="container">
+    <div id="container">
       <div class="row">
         <div class="name">Player1</div><div class="position">1</div>
       </div>

@@ -1,32 +1,43 @@
-.lobby-main {
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+
+.lobby-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-info, .player-list {
-  border: 1px solid black;
-  height: 82vh;
+  height: 80vh;
   padding: 20px;
 }
 
 .game-info {
   display: inline-block;
-  background-color: grey;
+  background-color: #da6175;
   justify-content: center;
-  width: 65%;
+  width: 50%;
+  margin: 50px;
+  border-radius: 15px;;
+  align: left;
 }
 
 .game-info > * {
+  font-family: 'Montserrat';
   text-align: center;
 }
 
 .player-list {
   display: inline-block;
   background-color: goldenrod;
+  border-radius: 15px;;
   justify-content: center;
   width: 25%;
+  align: right;
 }
 
 .player-list > * {
+  font-family: 'Montserrat';
   text-align: center;
 }
 
@@ -64,6 +75,7 @@ button[name="login"] {
 }
 
 .start {
+  font-family: 'Montserrat';
   display: inline-block;
   height: 20px;
   width: 50px;
