@@ -15,7 +15,7 @@ class GameNav extends Component {
       gameFinished: false,
       result: "",
       score: 0,
-      correctAnswer: this.props.mvq.correctAnswer,
+      correctAnswer: this.props.mvqa.correctAnswer,
       userAnswer: "",
       counter: 0,
       image: movie_imgs,
@@ -25,7 +25,7 @@ class GameNav extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.currentPlayer)
+    console.log(this.props.mvqa)
     this.props.socket.emit('clear_result')
     this.props.socket.on('clear_result', () => {
       this.setState({
@@ -52,6 +52,7 @@ class GameNav extends Component {
         score: score,
         counter: this.state.counter + 60
       });
+      console.log(this.state.score);
       this.setState({userAnswer: ""});
 
     } else {
@@ -65,9 +66,9 @@ class GameNav extends Component {
 
   gameFinish = () => {
     if ((this.state.counter / 60) >=5 ) {
-      return <AfterGame score={this.state.score} socket={this.props.socket} currentPlayer={this.props.currentPlayer} />
+      return <AfterGame score={this.state.score} socket={this.props.socket} />
     } else {
-      return <GameState userAnswer={this.state.userAnswer} score={this.state.score} mvq={this.props.mvq} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} socket={this.props.socket} />
+      return <GameState userAnswer={this.state.userAnswer} score={this.state.score} mvqa={this.props.mvqa} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} socket={this.props.socket} />
     }
   }
 
