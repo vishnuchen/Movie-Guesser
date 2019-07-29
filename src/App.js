@@ -28,7 +28,7 @@ class App extends Component {
     this.state={
       mvq: {},
       playerList: [],
-      currentPlayer: {}
+      currentPlayer: {},
       mvqa: {}
     }
   }
