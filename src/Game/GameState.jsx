@@ -34,8 +34,14 @@ class GameState extends Component {
           <Countdown enableButton={this.enableButton} userAnswer={this.props.userAnswer} checkAnswer={this.props.checkAnswer} nextQuestion={this.nextQuestion} result={this.props.result} counter={this.props.counter} />
         </div>
         <div className="game-cat">
+          <div>
+            <img src="/../curtain-left.png" alt=""/>
+          </div>
           <div className="game-cat-content">
             <QuizArea userAnswer={this.props.userAnswer} mvq={this.props.mvq} checkAnswer={this.props.checkAnswer} userChoice={this.props.userChoice} pic={this.props.pic} result={this.props.result} />
+          </div>
+          <div>
+            <img src="/../curtain-right.png" alt=""/>
           </div>
         </div>
       </div>

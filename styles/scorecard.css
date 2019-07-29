@@ -1,8 +1,9 @@
 #container {
   width: 600px;
-  background-color: blue;
+  background-color: beige;
   height: 600px;
-  margin: 50px;
+  margin: 50px auto;
+
 }
 
 .row {
@@ -17,6 +18,7 @@
   display: inline-block;
   width: 75%;
   line-height: 45px;
+  padding-left: 50px;
 }
 
 .position {
