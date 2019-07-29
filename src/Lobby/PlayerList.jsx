@@ -16,15 +16,6 @@ class PlayerList extends Component{
 
   render() {
 
-    // // We can assign each player name a unique color, like we did in Chatty
-    // let playerNames = []
-    // for (let name of this.props.list) {
-    //   // console.log('looking for this', Object.keys(name))
-    //   for (let x in name) {
-    //     playerNames.push(x)
-    //   }
-    // }
-
     // We can assign each player name a unique color, like we did in Chatty
     let playerNames = []
     for (let name of this.props.list) {
@@ -33,7 +24,9 @@ class PlayerList extends Component{
         playerNames.push(x)
       }
     }
-
+    let listItemMapper = playerNames.map((item) => {
+      return <li>{item}</li>
+    })
 
     // let listItemMapper = playerNames.map((item) => {
     //   return <li>{item}</li>
@@ -43,9 +36,9 @@ class PlayerList extends Component{
     return (
       <div>
         <h2>Players</h2>
-        {/* <ul className="player-list-list">
+        <ul className="player-list-list">
           {listItemMapper}
-        </ul> */}
+        </ul>
       </div>
     );
   }
