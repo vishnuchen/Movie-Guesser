@@ -37,10 +37,6 @@ class AfterGame extends Component {
       }
     }
 
-    let playerNameMapper = playerNames.map((item) => {
-      return <li>{item}</li>
-    })
-
     // Preparing player scores
     let playerScores = [];
 
@@ -51,47 +47,32 @@ class AfterGame extends Component {
       }
     }
 
-    let playerScoreMapper = playerScores.map((item) => {
-      return <li>{item}</li>
+    let styleList = []
+    let numOfPlayers = playerNames.length;
+    for (let i = 0; i < numOfPlayers; i ++) {
+      styleList.push([playerNames[i], playerScores[i],])
+    }
+
+    styleList.sort((a, b) => {
+      return b[1] - a[1];
+    })
+
+    let styleListMapper = styleList.map((player) => {
+      return (
+        <div className="row">
+          <div className="name">{player[0]}</div>
+          <div className="position">{player[1]}</div>
+        </div>
+      )
     })
 
 
     return (
       <div>
-        <div className="results-area">
-          <h1>Game Results</h1>
-          <ul>
-            {playerNameMapper}
-          </ul>
-          <ul>
-            {playerScoreMapper}
-          </ul>
-          <h3>You scored: {this.props.score} points!</h3>
-          <a href="/">Want to play again?</a>
+        <div id="container">
+          {styleListMapper}
         </div>
-        
-    <div id="container">
-      <div class="row">
-        <div class="name">Player1</div><div class="position">1</div>
       </div>
-
-      <div class="row">
-        <div class="name">Player2</div><div class="position">2</div>
-      </div>
-
-      <div class="row">
-        <div class="name">Player3</div><div class="position">3</div>
-      </div>
-
-      <div class="row">
-        <div class="name">Player4</div><div class="position">4</div>
-      </div>
-
-      <div class="row">
-        <div class="name">Player5</div><div class="position">5</div>
-      </div>
-    </div>
-    </div>
     );
   }
 }

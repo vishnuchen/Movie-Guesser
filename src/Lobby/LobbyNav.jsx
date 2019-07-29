@@ -10,7 +10,8 @@ class LobbyNav extends Component {
     super(props);
     this.state = {
       loginShow: false,
-      currentPlayer: []
+      currentPlayer: [],
+      playerList: []
     }
   }
 
@@ -43,6 +44,7 @@ class LobbyNav extends Component {
   }
 
   render() {
+    console.log("LobbyNav", this.state.playerList)
     const filmElement = <FontAwesomeIcon icon={faFilm} />
     return (
       <div>
@@ -60,7 +62,7 @@ class LobbyNav extends Component {
             <GameInfo socket={this.props.socket} playerList={this.state.playerList} />
           </div>
           <div className="player-list">
-            {/* <PlayerList list={this.state.playerList} /> */}
+            <PlayerList list={this.state.playerList} />
           </div>
         </div>
       </div>
