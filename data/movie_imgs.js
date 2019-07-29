@@ -452,10 +452,6 @@ module.exports = [
     ]
   },
   {
-    "movie_api_id": 613473,
-    "imgs": []
-  },
-  {
     "movie_api_id": 399579,
     "imgs": [
       {
@@ -6516,20 +6512,6 @@ module.exports = [
         "vote_average": 4.692,
         "vote_count": 12,
         "width": 1920
-      }
-    ]
-  },
-  {
-    "movie_api_id": 577970,
-    "imgs": [
-      {
-        "aspect_ratio": 1.777777777777778,
-        "file_path": "/6kFFYxGNi0sRbjKGIHn2Wev1pnb.jpg",
-        "height": 720,
-        "iso_639_1": null,
-        "vote_average": 0,
-        "vote_count": 0,
-        "width": 1280
       }
     ]
   },
