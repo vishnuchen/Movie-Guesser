@@ -99,6 +99,7 @@ makeQuestionTypeOne =  () => {
 
   // emit event to send this obj back to client
   return {
+    "correctAnswer": movie.title,
     "moviePic": moviePic,
     "questionChoice": shuffledQuestionChoice
   }

@@ -23,13 +23,11 @@ class QuizArea extends Component {
 
   render() {
     let mq = this.props.mvq;
-    console.log(mq)
     let pics = [];
     for (let pic of mq.moviePic) {
       pics.push("https://image.tmdb.org/t/p/original" + pic.file_path);
     }
     const movieQues = mq.questionChoice;
-    console.log(movieQues)
 
     return (
       <div>

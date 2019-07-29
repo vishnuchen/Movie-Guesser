@@ -34,6 +34,8 @@ class App extends Component {
       const questions_received = JSON.parse(questions)
       this.setState({
         mvq: questions_received
+      }, () => {
+        console.log(this.state.mvq)
       })
     })
   }

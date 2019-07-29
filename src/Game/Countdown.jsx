@@ -25,7 +25,6 @@ class Countdown extends React.Component {
           this.setState({
             timerTime: newTime
           });
-          console.log(this.state.timerTime);
         } else {
           this.props.checkAnswer();
           this.props.nextQuestion();

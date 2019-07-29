@@ -15,7 +15,7 @@ class GameNav extends Component {
       gameFinished: false,
       result: "",
       score: 0,
-      correctAnswer: "default",
+      correctAnswer: this.props.mvq.correctAnswer,
       userAnswer: "",
       counter: 0,
       image: movie_imgs,
@@ -25,7 +25,6 @@ class GameNav extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.currentPlayer)
     this.props.socket.emit('clear_result')
     this.props.socket.on('clear_result', () => {
       this.setState({
@@ -35,6 +34,8 @@ class GameNav extends Component {
     this.props.socket.on('broadcast_title', (title) => {
       this.setState({
         correctAnswer: title
+      }, () => {
+        console.log('broadcasted')
       })
     })
   }
@@ -44,11 +45,12 @@ class GameNav extends Component {
   }
 
   checkAnswer = () => {
+    console.log( this.state.userAnswer, "CheckQuestion", this.state.correctAnswer);
     if(this.state.userAnswer == this.state.correctAnswer) {
-      let score = this.state.score;
+      let score = this.state.score + 1;
       this.setState({
         result: "correct",
-        score: score + 1,
+        score: score,
         counter: this.state.counter + 60
       });
       this.setState({userAnswer: ""});
