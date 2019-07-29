@@ -47,17 +47,6 @@ module.exports = [{
   "release_date": "2019-05-03"
 },
 {
-  "api_id": 613473,
-  "vote_average": 3,
-  "title": "Burglary",
-  "genre_ids": [
-    "Horror",
-    "Thriller",
-    "Mystery"
-  ],
-  "release_date": "2019-07-19"
-},
-{
   "api_id": 399579,
   "vote_average": 6.8,
   "title": "Alita: Battle Angel",
@@ -412,16 +401,6 @@ module.exports = [{
     "Adventure"
   ],
   "release_date": "2010-07-15"
-},
-{
-  "api_id": 577970,
-  "vote_average": 6.5,
-  "title": "Dilan 1991",
-  "genre_ids": [
-    "Romance",
-    "Drama"
-  ],
-  "release_date": "2019-02-28"
 },
 {
   "api_id": 324857,
