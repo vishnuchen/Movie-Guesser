@@ -25,7 +25,6 @@ class GameNav extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.currentPlayer)
     this.props.socket.emit('clear_result')
     this.props.socket.on('clear_result', () => {
       this.setState({
@@ -35,6 +34,8 @@ class GameNav extends Component {
     this.props.socket.on('broadcast_title', (title) => {
       this.setState({
         correctAnswer: title
+      }, () => {
+        console.log('broadcasted')
       })
     })
   }
