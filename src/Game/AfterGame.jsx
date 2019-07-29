@@ -70,6 +70,7 @@ class AfterGame extends Component {
     return (
       <div>
         <div id="container">
+          <h2>Leaderboard</h2>
           {styleListMapper}
         </div>
       </div>

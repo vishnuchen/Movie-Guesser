@@ -31,6 +31,11 @@ nav {
 }
 
 
+.game-section-all {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
 
 .game-section-all div {
   display: flex;
@@ -38,11 +43,12 @@ nav {
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   border-radius: 15px;
   padding: 15px;
   background: #FACA81;
-  width: 50%;
+  width: 90%;
 }
 
 .game-section-all h2 {
