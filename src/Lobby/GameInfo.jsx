@@ -36,7 +36,7 @@ class GameInfo extends Component{
     const gameUrl = "/game/dksdjfskd";
 
     if (this.state.redirect) {
-      return <Redirect push to="/game" />
+      return <Redirect push to="/game" playerList={this.props.playerList} />
     }
 
     return (

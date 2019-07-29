@@ -39,7 +39,6 @@ class PlayerList extends Component{
     //   return <li>{item}</li>
     // })
 
-    console.log(listItemMapper)
     return (
       <div>
         <h2>Players</h2>
