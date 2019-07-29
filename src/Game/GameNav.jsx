@@ -46,10 +46,10 @@ class GameNav extends Component {
   checkAnswer = () => {
     console.log( this.state.userAnswer, "CheckQuestion", this.state.correctAnswer);
     if(this.state.userAnswer == this.state.correctAnswer) {
-      let score = this.state.score;
+      let score = this.state.score + 1;
       this.setState({
         result: "correct",
-        score: score + 1,
+        score: score,
         counter: this.state.counter + 60
       });
       console.log(this.state.score);
@@ -65,7 +65,7 @@ class GameNav extends Component {
   }
 
   gameFinish = () => {
-    if ((this.state.counter / 60) >=5 ) {
+    if ((this.state.counter / 60) >= 5 ) {
       return <AfterGame score={this.state.score} socket={this.props.socket} />
     } else {
       return <GameState userAnswer={this.state.userAnswer} score={this.state.score} mvq={this.props.mvq} checkAnswer={this.checkAnswer} userChoice={this.userChoice} pic={this.state.image} result={this.state.result} counter={this.state.counter} socket={this.props.socket} />

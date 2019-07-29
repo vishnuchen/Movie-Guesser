@@ -46,10 +46,10 @@ class GameNav extends Component {
   checkAnswer = () => {
     console.log( this.state.userAnswer, "CheckQuestion", this.state.correctAnswer);
     if(this.state.userAnswer == this.state.correctAnswer) {
-      let score = this.state.score;
+      let score = this.state.score + 1;
       this.setState({
         result: "correct",
-        score: score + 1,
+        score: score,
         counter: this.state.counter + 60
       });
       console.log(this.state.score);
