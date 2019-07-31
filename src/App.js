@@ -19,7 +19,14 @@ import '../styles/lobby.css';
 import '../styles/scorecard.css';
 import openSocket from 'socket.io-client';
 
-const socket = openSocket('http://localhost:3001');
+var connectionOptions =  {
+  "force new connection" : true,
+  "reconnectionAttempts": "Infinity", //avoid having user reconnect manually in order to prevent dead clients after a server restart
+  "timeout" : 10000, //before connect_error and connect_timeout are emitted.
+  "transports" : ["websocket"]
+};
+
+const socket = openSocket('http://172.46.2.97:3001', connectionOptions);
 
 
 class App extends Component {

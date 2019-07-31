@@ -1,8 +1,26 @@
 var app = require('express')();
 var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var io = require("socket.io")(http, {
+  handlePreflightRequest: (req, res) => {
+      const headers = {
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
+          "Access-Control-Allow-Credentials": true
+      };
+      res.writeHead(200, headers);
+      res.end();
+  }
+});
+var cors = require('cors');
+io.set('origins', '*:*');
+io.origins('*:*');
+io.set('transports', [ 'websocket' ]);
 const popular_movie = require("../data/popular_movie.js");
 const movie_imgs = require("../data/movie_imgs.js");
+
+app.use(cors());
+
+app.options('*', cors());
 
 app.get('/', function(req, res){
   res.sendFile('/home/vishnu/lighthouse/movieguesser/src/Lobby/LobbyNav.jsx'); //react file for visual
