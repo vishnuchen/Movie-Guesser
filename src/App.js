@@ -26,7 +26,7 @@ var connectionOptions =  {
   "transports" : ["websocket"]
 };
 
-const socket = openSocket('http://172.46.2.97:3001', connectionOptions);
+const socket = openSocket('http://localhost:3001', connectionOptions);
 
 
 class App extends Component {
