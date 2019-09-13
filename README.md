@@ -15,7 +15,9 @@ This project was a collaboration between Jingfan Zhang, [Perry MacDougall](https
 
 ## Playing MovieGuesser (User Perspective)
 
-![App preview] (https://github.com/vishnuchen/Movie-Guesser/blob/master/Images/Final-test.gif)
+App Preview - 
+
+![App preview] (https://github.com/vishnuchen/Movie-Guesser/blob/master/Images/Final-test.gif "App Preview")
 
 ### Licence
 MIT
