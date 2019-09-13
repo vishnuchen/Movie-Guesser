@@ -13,5 +13,9 @@ This project was a collaboration between Jingfan Zhang, [Perry MacDougall](https
 1. To run MovieGuesser, you will need to have two Terminal windows open. In one window, run `npm start` in the root directory.
 2. In the other window, navigate to the `/server` directory and run `npm start` to start the server.
 
+## Playing MovieGuesser (User Perspective)
+
+![App preview] (https://github.com/vishnuchen/Movie-Guesser/blob/master/Images/Final-test.gif)
+
 ### Licence
 MIT
